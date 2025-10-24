@@ -66,9 +66,92 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
   color:white;
 }
 
-/* ------------------------------------- */
-/* --- Reste de votre CSS original --- */
-/* ------------------------------------- */
+/* style pour index */
+
+.hero-section {
+    padding: 3rem 1rem; /* Espace autour de la section */
+    max-width: 1000px; /* Limiter la largeur max pour un meilleur alignement */
+    margin: 2rem auto; /* Centrer la section sur la page */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row; /* Image et texte côte à côte */
+    gap: 2rem; /* Espace entre l'image et le paragraphe */
+    align-items: center; /* Aligner les éléments verticalement */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur mobile */
+}
+
+.hero-image-container {
+    position: relative; /* Point de référence pour le positionnement absolu de "HELLO" */
+    flex: 1; /* Prend l'espace disponible */
+    min-width: 250px; /* Taille minimale pour l'image sur petit écran */
+    max-width: 400px; /* Taille maximale pour l'image */
+    margin: 0 auto; /* Centrer l'image si elle est seule sur une ligne */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bords légèrement arrondis pour l'image */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    display: block; /* Supprime l'espace sous l'image */
+}
+
+.hero-hello {
+    position: absolute;
+    top: 50%; /* Commence à 50% du haut du conteneur */
+    left: 0; /* Aligner à gauche du conteneur */
+    transform: translateY(-50%); /* Centrer verticalement le texte */
+    font-size: 5rem; /* Très grande taille de texte */
+    font-weight: 900; /* Extra gras */
+    color: var(--accent); /* Utilise votre couleur d'accentuation */
+    opacity: 0.8; /* Légèrement transparent pour laisser voir l'image derrière */
+    line-height: 1; /* Supprimer les espaces supplémentaires de ligne */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Petite ombre pour le texte */
+    z-index: 2; /* S'assure que le texte est au-dessus de l'image */
+    pointer-events: none; /* Empêche le texte d'intercepter les clics sur l'image */
+}
+
+.hero-text-presentation {
+    flex: 2; /* Le paragraphe prend plus d'espace */
+    min-width: 300px; /* Taille minimale pour le paragraphe sur petit écran */
+}
+
+.hero-text-presentation p {
+    font-size: 1.15rem; /* Taille de police légèrement plus grande */
+    line-height: 1.8; /* Meilleure lisibilité */
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column; /* Empiler l'image et le texte sur les petits écrans */
+        text-align: center; /* Centrer le texte */
+    }
+    .hero-image-container {
+        max-width: 300px; /* Réduire la taille de l'image sur les tablettes */
+    }
+    .hero-hello {
+        font-size: 4rem; /* Réduire la taille de "HELLO" */
+        left: 50%; /* Centrer "HELLO" horizontalement */
+        transform: translate(-50%, -50%); /* Centrer parfaitement */
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-section {
+        padding: 2rem 0.5rem;
+    }
+    .hero-hello {
+        font-size: 3rem; /* Encore plus petit sur les très petits écrans */
+    }
+    .hero-text-presentation p {
+        font-size: 1rem;
+    }
+}
+
+/* Reste du style global */ 
 
 .container{max-width:900px;margin:2rem auto;padding:0 1rem}
 .cards, .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
@@ -80,10 +163,10 @@ form.contact-form label{display:block}
 form.contact-form input, form.contact-form textarea{width:100%;padding:0.5rem;border:1px solid #ddd;border-radius:6px}
 button{background:var(--accent);color:white;border:none;padding:0.6rem 1rem;border-radius:6px;cursor:pointer}
 
-/* Ajustement pour la réactivité sur mobile */
+/* Ajustement pour l'adaptation version mobile */
 @media (max-width:520px){
   .navbar{
-    flex-direction: column; /* Empile la marque et les liens verticalement */
+    flex-direction: column; 
     align-items: flex-start;
   }
   .navbar-links-list{
