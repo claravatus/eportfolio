@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> HOME — Clara Vatus </title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Page d'accueil de mon e-portfolio">
+</head>
+<body>
+    <header>
+    <nav class="navbar"> 
+        
+        <a href="index.html" class="navbar-brand">
+            CLARA VATUS — STUDENT ENGINEER
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+            &#9776; </button>
+        
+        <ul class="navbar-links-list">
+            <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
+            <li><a href="mobility.html"> MOBILITY</a></li>
+            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html"> ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        menuToggle.addEventListener('click', function() {
+            // Bascule la classe 'is-open' pour afficher/cacher le menu
+            navbarLinksList.classList.toggle('is-open');
+            
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+</script>
+
+
+    <main class="container">
+        <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <img src="images/clara.jpg" alt="Clara Vatus" class="hero-image">
+                <h1 class="hero-hello"> HELLO</h1>
+            </div>
+            <div class="hero-text-presentation">
+                <p>
+                    I am Clara ! After studying at the integrated preparatory class of TOULOUSE INP for two years, I am now 
+                    a first-year engineering student at ENSEEIHT. Since I have always been passionate about computer science
+                    and new technologies, I am following the Computer SCience course with the aim of working in the field of big data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+    <section class="quick-links-section">
+        <h2 class="section-title">More about me</h2>
+        
+        <div class="cards">
+            
+            <article class="card-link" style="background-image: url('images/big_cloud.jpeg');">
+                <a href="career-developemnt.html" class="card-content">
+                    <h3>CAREER DEVELOPMENT</h3>
+                    <p>Mes objectifs</p>
+                </a>
+            </article>
+
+            <article class="card-link" style="background-image: url('images/dawn_cloud.jpeg');">
+                <a href="engineering-course.html" class="card-content">
+                    <h3>ENGINEERING COURSES</h3>
+                    <p>Mon cursus</p>
+                </a>
+            </article>
+
+            <article class="card-link" style="background-image: url('images/dusk_cloud.jpeg');">
+                <a href="activity.html" class="card-content">
+                    <h3>ACTIVITIES</h3>
+                    <p>Mes loisirs</p>
+                </a>
+            </article>
+            
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 — My E-Portfolio</p>
+    </footer>
+
+</body>
+</html>
