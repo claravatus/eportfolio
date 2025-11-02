@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>À propos — Mon E-Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="À propos de moi">
+</head>
+<body>
+  <header>
+    <nav class="navbar"> 
+        
+        <a href="index.html" class="navbar-brand">
+            CLARA VATUS — STUDENT ENGINEER
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+            &#9776; </button>
+        
+        <ul class="navbar-links-list">
+            <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
+            <li><a href="mobility.html"> MOBILITY</a></li>
+            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html"> ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        menuToggle.addEventListener('click', function() {
+            // Bascule la classe 'is-open' pour afficher/cacher le menu
+            navbarLinksList.classList.toggle('is-open');
+            
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+</script>
+
+
+
+  <main class="container">
+
+    <section class="hero-civic"> 
+        <div class="civic-image-container"> 
+            <img src="images/civic-engagement.jpg" alt="Civic engagement" class="mobility-hero-image">
+            <h1 class="civic-hello">CIVIC ENGAGEMENT</h1> </div>
+        <div class="civic-intro-text"> 
+          <p>
+                Over the past few years, I have participated in numerous activities 
+                related to ecology and gender-based and sexual violence.Below is a 
+                non-exhaustive chronological list of the activities I have attended.
+            </div>
+    </section>
+  
+
+    <section class="civic-timeline-section">
+        <h2>My civic engagement</h2>
+        
+        <article class="civic-timeline-item civic-timeline-right">
+            <div class="civic-image-wrapper">
+                <img src="images/fresque.png" alt=" FRESQUES ECOLOGIQUES " class="timeline-image">
+            </div>
+            <div class="timeline-text-wrapper">
+                <h3> Fresques écologiques </h3>
+                <p>
+                    Over the past few years, I have attended many ecological frescoes. 
+                    For example, I attended the climate frescoes twice and then once each 
+                    for the biodiversity, digital and planetary boundaries frescoes. 
+                    In 2024, I also attended the two-tonne workshop that took place 
+                    at the INP preparatory school.                   
+                </p>
+            </div>
+        </article>
+
+        <article class="civic-timeline-item civic-timeline-left">
+            <div class="civic-image-wrapper">
+                <img src="images/kingkong.jpeg" alt="King Kong" class="timeline-image">
+            </div>
+            <div class="timeline-text-wrapper">
+                <h3> King Kong trial </h3>
+                <p>
+                    I also attended two performances of an interactive play called "The Trial 
+                    of King Kong". This play deals with gender-based and sexual violence in 
+                    the student community. Hosted by a criminal court judge, this play was 
+                    very informative. 
+                </p>
+            </p>
+        </article>
+
+        <article class="civic-timeline-item civic-timeline-right">
+            <div class="civic-image-wrapper">
+                <img src="images/futurproche.png" alt="FUTUR PROCHE" class="timeline-image">
+            </div>
+            <div class="timeline-text-wrapper">
+                <h3> "Futur proche" festival </h3>
+                <p>
+                    I participated in the one-day "Futur proches" festival for 
+                    two consecutive years. During these days, I attended a conference 
+                    on the ecological impact of AI, a presentation on the Matilda effect, 
+                    a presentation on how to eat responsibly, and a videoconference with 
+                    an economist author on the idea of economic degrowth. 
+                </p>
+            </p>
+        </article>
+
+        </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+        <p>&copy; 2025 — My E-Portfolio</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
+                My Linkedin </a>
+        </div>
+    </div>
+  </footer>
+</body>
+</html>

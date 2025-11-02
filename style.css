@@ -1,0 +1,1261 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --accent:#2b6cb0;
+  --text:#222;
+}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0;background:var(--bg);color:var(--text)}
+
+
+
+/* style pour navbar */
+
+.navbar{
+  background:var(--card);
+  box-shadow:0 1px 2px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  /* Assure que le menu déroulant est bien positionné par rapport à la navbar */
+  position: relative; 
+}
+
+/* Style de la marque */
+.navbar-brand {
+    font-size: 1.35rem; 
+    font-weight: 800; 
+    text-decoration: none;
+    color: var(--text);
+}
+
+.navbar-brand:hover {
+    background: none !important;
+    color: var(--text) !important;
+    text-decoration: none !important;
+}
+
+/* Bouton Hamburger : Caché sur grand écran */
+.menu-toggle {
+    display: none; 
+}
+
+/* Style de la liste de liens (pour grand écran) */
+.navbar-links-list{
+  list-style:none;
+  display:flex;
+  gap: 0;
+  margin:0;
+  padding:0;
+  width: 50%; 
+  justify-content: flex-end;
+  flex-wrap: nowrap; 
+  min-width: 0; 
+}
+
+/* Style des liens (pour grand écran) */
+.navbar-links-list a{
+  display:block;
+  font-size: 0.85rem; 
+  font-weight: 400; 
+  border-bottom: 2px solid transparent;
+  padding-top:0.85rem;
+  padding-bottom: 0.65rem; 
+  padding-left: 0.75rem; 
+  padding-right: 0.75rem;
+  color:var(--text);
+  text-decoration:none;
+  border-radius:0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  white-space: nowrap; /* Empêche le saut de ligne */
+}
+
+/* Effet de Survol : Trait fin bleu */
+.navbar-links-list a:hover{
+  background: none;
+  text-decoration: none;
+  color: var(--accent); 
+  border-bottom: 2px solid var(--accent); 
+}
+
+/* Style du lien actif (sur la page courante) */
+.navbar-links-list a.active{
+  background:var(--accent);
+  color:white;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.65rem; 
+}
+
+/* Dès que la largeur de l'écran est de 1240px ou moins */
+@media (max-width: 1240px) { 
+    
+    /* 1. Afficher l'icône Hamburger */
+    .menu-toggle {
+        display: block; 
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 100;
+        padding: 0.5rem;
+        color: var(--text);
+    }
+
+    .navbar-links-list {
+        display: none; /* Caché par défaut */
+        flex-direction: column; /* Pour afficher les liens verticalement */
+        position: absolute;
+        top: 3.2rem; /* Décalage sous la navbar (ajustez si votre navbar est plus haute) */
+        right: 0;
+        width: 70%; 
+        background: var(--card);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        z-index: 90;
+        /* Ajout de transition pour un effet d'ouverture/fermeture plus doux */
+        transition: all 0.3s ease-in-out; 
+    }
+    
+    /* CLASSE JAVASCRIPT : Afficher le menu ouvert */
+    .navbar-links-list.is-open {
+        display: flex; /* AFFICHAGE ACTIF */
+    }
+    
+    /* Styles des liens dans le menu vertical */
+    .navbar-links-list li {
+        width: 100%;
+        text-align: right;
+        margin: 0.5rem 0;
+    }
+    
+    /* Style des liens (pour grand écran) */
+.navbar-links-list a{
+  display:block;
+  font-size: 0.85rem; 
+  font-weight: 400; 
+  
+  /* CHANGEMENT CLÉ 1 : Ajout d'une bordure transparente pour RESERVER l'espace */
+  border-bottom: 2px solid transparent; 
+  
+  padding:0.75rem 0.5rem; 
+  color:var(--text);
+  text-decoration:none;
+  border-radius:0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Effet de Survol : Trait fin bleu */
+.navbar-links-list a:hover{
+  background: none;
+  text-decoration: none;
+  color: var(--accent); 
+  border-bottom: 2px solid var(--accent); 
+  padding-bottom: 0.75rem; 
+}
+
+/* Style du lien actif (sur la page courante) */
+.navbar-links-list a.active{
+  background:var(--accent);
+  color:white;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.75rem; 
+}
+
+}
+
+/* style pour index */
+
+.hero-section {
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row-reverse; 
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hero-image-container {
+    position: relative;
+    flex: 2; 
+    min-width: 300px; /* Augmentation de la taille minimale */
+    max-width: 600px; /* Augmentation de la taille maximale */
+    margin: 0 auto;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.hero-hello {
+    position: absolute;
+    top: -2%;
+    left: -60%; 
+    transform: translateY(-50%);
+    font-size: 8rem;
+    font-weight: 900;
+    color: var(--accent);
+    opacity: 0.8;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-text-presentation {
+    flex: 1; 
+    min-width: 300px;
+    margin-top: 8rem; /* Espace pour le "HELLO" */
+    text-align: justify ;
+}
+
+.hero-text-presentation p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.hero-content {
+    padding-left: 10%; 
+}
+
+
+/* Media Queries pour la réactivité */
+@media (max-width: 768px) {
+    .hero-content {
+        /* On retire row-reverse ici pour que l'ordre reste image-texte sur mobile */
+        flex-direction: column; 
+        text-align: center;
+        padding-left: 0; /* On retire le padding sur mobile */
+    }
+    .hero-image-container {
+        max-width: 300px;
+        margin-bottom: 3rem; /* Espace après l'image */
+    }
+    .hero-hello {
+        font-size: 4rem;
+        left: 50%; /* Centrer "HELLO" sur l'image sur mobile */
+        transform: translate(-50%, -50%); 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column; /* Empiler l'image et le texte sur les petits écrans */
+        text-align: center; /* Centrer le texte */
+    }
+    .hero-image-container {
+        max-width: 300px; /* Réduire la taille de l'image sur les tablettes */
+    }
+    .hero-hello {
+        font-size: 4rem; /* Réduire la taille de "HELLO" */
+        left: 50%; /* Centrer "HELLO" horizontalement */
+        transform: translate(-50%, -50%); /* Centrer parfaitement */
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-section {
+        padding: 2rem 0.5rem;
+    }
+    .hero-hello {
+        font-size: 3rem; /* Encore plus petit sur les très petits écrans */
+    }
+    .hero-text-presentation p {
+        font-size: 1rem;
+    }
+}
+
+/* Reste du style global */ 
+
+.container{
+    max-width:1000px;
+    margin:2rem auto;
+    padding:0 1rem
+}
+
+.cards,
+
+ .projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1rem
+}
+.project-card,
+ .cards article{
+    background:var(--card);
+    padding:1rem;
+    border-radius:8px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04)
+}
+
+.button{
+    background:var(--accent);
+    color:white;
+    padding:0.4rem 0.7rem;
+    border-radius:6px;
+    text-decoration:none
+}
+
+footer{
+    text-align:center;
+    padding:2rem 1rem;
+    color:#666
+}
+
+form.contact-form{
+    display:grid;
+    gap:0.5rem;
+    max-width:600px
+}
+
+form.contact-form label{
+    display:block
+}
+
+form.contact-form input, form.contact-form textarea{width:100%;padding:0.5rem;border:1px solid #ddd;border-radius:6px}
+button{background:var(--accent);color:white;border:none;padding:0.6rem 1rem;border-radius:6px;cursor:pointer}
+
+/* Ajustement pour l'adaptation version mobile */
+@media (max-width:520px){
+  .navbar{
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+  .navbar-links-list{
+    width: 100%; /* Les liens reprennent toute la largeur sur mobile */
+    justify-content: space-around; /* Mieux espacer les liens */
+    margin-top: 0.5rem;
+  }
+  .navbar-links-list ul{
+    flex-wrap:wrap;
+  }
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Galerie de Cartes --- */
+/* ------------------------------------- */
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    padding-right: 1rem;
+    /* Centrer le titre */
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards {
+    /* Le style grid est déjà dans votre CSS, assurant la disposition en colonnes */
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.card-link {
+    /* Assure que l'image de fond prend tout l'espace */
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* Hauteur fixe pour toutes les cartes */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden; /* Empêche le contenu de déborder */
+    transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+    transform: translateY(-5px); /* Effet 3D léger au survol */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-content {
+    /* Le lien doit couvrir toute la carte */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aligner le texte en bas de la carte */
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: white; /* Couleur du texte sur la carte */
+    
+    /* Overlay semi-transparent noir pour améliorer la lisibilité */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    transition: background 0.3s ease;
+}
+
+.card-link:hover .card-content {
+    /* Augmenter l'opacité de l'overlay au survol */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+.card-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Section Mobilité --- */
+/* ------------------------------------- */
+
+.hero-mobility {
+    display: flex;
+    flex-direction: row; /* Image à gauche, Texte à droite */
+    gap: 3rem;
+    align-items: flex-start;
+    margin-bottom: 5rem;
+}
+
+.mobility-image-container {
+    position: relative;
+    /* L'image prend 2/3 de l'espace */
+    flex: 2; 
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.mobility-hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.mobility-hello {
+    position: absolute;
+    top: -2%; /* Verticalement centré dans l'image */
+    left: 60%; /* Décalage pour sortir à gauche de l'image */
+    transform: translateY(-50%);
+    
+    font-size: 8rem; 
+    font-weight: 900;
+    color: var(--accent);
+    opacity: 0.9;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.mobility-intro-text {
+    /* Le texte prend 1/3 de l'espace et est décalé du haut */
+    flex: 1; 
+    min-width: 250px;
+    padding-top: 12rem; /* Décaler le texte vers le bas, loin du titre MOBILITY */
+}
+/* ------------------------------------- */
+/* --- Styles pour les Barres de Langue (Language Skills) --- */
+/* ------------------------------------- */
+
+.language-skills {
+    max-width: 900px;
+    margin : 3rem auto;
+    padding: 1rem;}
+
+.language-skills h2 {
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.language-skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem 3rem;
+}
+
+.skill-bar-item {
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar-item p {
+    font-weight: 400;
+    margin: 0 0 0.4rem 0;
+    font-size: 1rem;
+}
+
+.skill-bar-container {
+    background: #e0e0e0;
+    border-radius: 8px;
+    height: 20px; /* Hauteur de la barre */
+    overflow: hidden;
+}
+
+.skill-bar-level {
+    background-color: var(--accent); 
+    color: white;
+    height: 100%;
+    line-height: 15px; 
+    text-align: right;
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: width 1.5s ease-in-out;
+}
+
+/* --- Réactivité pour les langues --- */
+@media (max-width: 768px) {
+    .language-skills-grid {
+        /* Revenir à 1 seule colonne sur les petits écrans */
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+    }
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Chronologie (Alternance) --- */
+/* ------------------------------------- */
+
+.mobility-timeline h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 2rem;
+}
+
+.timeline-image-wrapper {
+    /* L'image prend 60% de l'espace */
+    flex: 3; 
+}
+
+.timeline-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-text-wrapper {
+    /* Le texte prend 40% de l'espace */
+    flex: 2; 
+}
+
+.timeline-date {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Bloc d'alternance 1 : Image Gauche / Texte Droite (par défaut) */
+.timeline-right {
+    flex-direction: row; 
+}
+
+/* Bloc d'alternance 2 : Image Droite / Texte Gauche */
+.timeline-left {
+    flex-direction: row-reverse; /* Inverse l'ordre de l'image et du texte */
+}
+
+
+/* ------------------------------------- */
+/* --- Media Query pour la Réactivité --- */
+/* ------------------------------------- */
+
+@media (max-width: 900px) {
+    /* 1. Empiler l'intro sur les petits écrans */
+    .hero-mobility {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .mobility-image-container {
+        max-width: 400px;
+        margin-bottom: 2rem;
+    }
+    .mobility-intro-text {
+        padding-top: 0;
+    }
+
+    /* 2. Empiler les blocs de la chronologie */
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Réinitialiser l'ordre de la chronologie pour mobile */
+    .timeline-left, .timeline-right {
+        flex-direction: column;
+    }
+}
+
+
+/* ------------------------------------- */
+/* --- Styles pour la Galerie Activity --- */
+/* ------------------------------------- */
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+    gap: 1.5rem;
+    padding: 3rem 0;
+}
+
+.activity-card {
+    /* Réutilisez les propriétés des cartes de l'Index pour le fond et l'overlay */
+    background-size: cover;
+    background-position: center;
+    height: 350px; /* Augmenter la hauteur pour des "grosses cards" */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.activity-grid .middle-card {
+    /* Décalage vertical : pousser la carte vers le bas de 50px */
+    transform: translateY(50px);
+}
+
+.activity-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.activity-grid .middle-card:hover {
+    transform: translateY(40px);
+}
+
+/* Réutilisez le style de contenu de la carte pour la lisibilité (si vous ne l'avez pas déjà) */
+.activity-card .card-content {
+    /* S'assurer que le contenu du lien couvre bien la carte */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    transition: background 0.3s ease;
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Page de Détail  --- */
+/* ------------------------------------- */
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* SECTION HÉRO AVEC SUPERPOSITION */
+
+.hobby-hero-image-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+    /* Hauteur de l'image de couverture */
+    height: 400px; 
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.hobby-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* CLÉ : Assure que l'image couvre le conteneur sans déformation */
+    display: block;
+}
+
+.hobby-title {
+    position: absolute;
+    bottom: 1rem; /* Place le texte en bas de l'image */
+    left: 1rem;
+    
+    font-size: 4rem; /* Grosse taille */
+    font-weight: 900;
+    color: white; /* Couleur blanche pour contraster avec l'image */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    line-height: 1;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hobby-intro-text {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text);
+    text-align: center;
+    max-width: 800px;
+    margin: 1rem auto 3rem auto;
+}
+
+
+/* SECTION GALERIE DE PHOTOS */
+
+.hobby-detail h2, .hobby-detail h3 {
+    margin-top: 3rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.photo-gallery {
+    /* Utilisation de CSS Grid pour une galerie responsive */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-photo {
+    width: 100%;
+    height: 380px; /* Hauteur fixe pour toutes les images de la galerie */
+    object-fit: cover; /* Assure que chaque image remplit son espace sans être déformée */
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-photo:hover {
+    transform: scale(1.02); /* Petit effet de zoom au survol */
+}
+
+
+/* ------------------------------------- */
+/* --- Styles pour la Section Héro CIVIC ENGAGEMENT --- */
+/* ------------------------------------- */
+
+.hero-civic {
+    display: flex;
+    flex-direction: row; 
+    gap: 3rem;
+    align-items: flex-start;
+    margin-bottom: 5rem;
+}
+
+.civic-image-container {
+    position: relative;
+    /* Image Plus Petite : Prend 1/3 de l'espace sur grand écran */
+    flex: 1.2; /* Réduit la taille par rapport au flex: 2 de la page Mobilité */
+    min-width: 200px;
+    max-width: 450px; /* Taille maximale plus petite */
+}
+
+.civic-hello {
+    position: absolute;
+    top: 10%;
+    left: 85%; 
+    transform: translateY(-50%);
+    font-size: 6rem; 
+    font-weight: 900;
+    color: var(--accent);
+    opacity: 0.9;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    white-space: normal; 
+    width: 150%; /* Permet de déborder légèrement en utilisant un pourcentage */
+}
+
+.civic-intro-text {
+    /* Le texte prend 2/3 de l'espace (car l'image est petite) */
+    flex: 2; 
+    min-width: 250px;
+    padding-top: 14rem; /* Décalage pour aligner sous le titre */
+}
+
+
+/* ------------------------------------- */
+/* --- Media Query Spécifique pour le Titre Long --- */
+/* ------------------------------------- */
+
+@media (max-width: 900px) {
+    .hero-civic {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    /* Sur mobile, on enlève le décalage pour le centrage */
+    .civic-hello {
+        font-size: 3rem; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        width: auto;
+    }
+}
+
+.civic-timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 2rem;
+}
+
+.civic-image-wrapper {
+    flex: 1; 
+    max-width: 250px; 
+}   
+
+.civic-timeline-item .timeline-text-wrapper { 
+    flex: 2; 
+}
+
+.civic-timeline-right {
+    flex-direction: row; 
+    justify-content: flex-start; /* Aligne l'image à gauche du conteneur image-texte */
+}
+
+.civic-timeline-left {
+    flex-direction: row-reverse; /* Inverse l'ordre */
+    justify-content: flex-end; /* Aligne l'image à droite du conteneur image-texte */
+}
+
+
+.civic-image-wrapper img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
+
+/* --- Media Query pour la Réactivité --- */
+@media (max-width: 900px) {
+    /* Sur mobile, on empile les éléments et on supprime les contraintes de taille */
+    .civic-timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Réinitialiser l'ordre et la taille pour mobile */
+    .civic-timeline-left, .civic-timeline-right {
+        flex-direction: column;
+    }
+    .civic-image-wrapper {
+        max-width: 100%; /* Reprend toute la largeur sur mobile */
+        margin: 0 auto 1.5rem auto; 
+    }
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Page CONTACT (a-propos.html) --- */
+/* ------------------------------------- */
+
+.contact-intro-text {
+    font-size: 1.15rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 1.5rem auto 3rem auto;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center; /* Centrer les deux cartes */
+    gap: 2rem;
+    flex-wrap: wrap; 
+}
+
+.contact-card {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card h3 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.contact-button {
+    /* Utilisation du style de bouton existant pour un look cohérent */
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--accent);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Styles visuels pour les cartes (utiles pour identifier les types de contact) */
+.linkedin-card {
+    border-top: 5px solid #0077B5; /* Bande bleue LinkedIn */
+}
+
+.email-card {
+    border-top: 5px solid #D44638; /* Bande rouge Email */
+}
+
+/* Ajustement pour les très petits écrans */
+@media (max-width: 450px) {
+    .contact-details {
+        gap: 1rem;
+    }
+    .contact-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Page CONTACT --- */
+/* ------------------------------------- */
+
+.contact-intro-text {
+    font-size: 1.15rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 1.5rem auto 3rem auto;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center; /* Centrer les deux cartes */
+    gap: 2rem;
+    flex-wrap: wrap; 
+}
+
+.contact-card {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card h3 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.contact-button {
+    /* Utilisation du style de bouton existant pour un look cohérent */
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--accent);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+.linkedin-card {
+    border-top: 5px solid #0077B5; /* Bande bleue LinkedIn */
+}
+
+.email-card {
+    border-top: 5px solid #D44638; /* Bande rouge Email */
+}
+
+.phone-card {
+    border-top: 5px solid #28a745; 
+}
+
+
+/* Ajustement pour les très petits écrans */
+@media (max-width: 450px) {
+    .contact-details {
+        gap: 1rem;
+    }
+    .contact-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Page Engineering Course (Colonnes & Badges) --- */
+/* ------------------------------------- */
+
+.intro-course {
+    font-size: 1.15rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 1.5rem auto 3rem auto;
+}
+
+.two-columns-layout {
+    display: flex;
+    gap: 4rem; 
+    margin-top: 3rem;
+}
+
+.skills-matrix, 
+.project-showcase {
+    flex: 1; 
+    min-width: 300px;
+}
+
+/* --- Styles pour les Badges de Compétences (Variations de Bleu) --- */
+
+.skill-category h3 {
+    color: var(--text); 
+    border-bottom: 2px solid var(--accent); /* Séparateur bleu */
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+}
+
+.badge {
+    background-color: var(--accent); /* Base: Couleur bleue principale */
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Variations de bleu pour la polyvalence (Optionnel : rend la section plus visuelle) */
+.badge-python { background-color: #388eac; }      /* Bleu-vert subtil */
+.badge-dart { background-color: #0077B5; }         /* Bleu soutenu */
+.badge-web { background-color: #4CAF50; }         /* Vert pour le Web */
+.badge-github { background-color: #333; }         /* Gris foncé pour l'outil */
+.badge-linux { background-color: #6a6a6a; }       /* Gris */
+.badge-methode { background-color: #FFA07A; }     /* Orange clair pour les méthodes */
+
+
+/* --- Styles pour les Projets (Format Bloc Structuré) --- */
+
+.project-entry {
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    /* Ombre légère et bordure pour l'effet bloc */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+    border-left: 5px solid var(--accent);
+}
+
+.project-entry h3 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.project-entry p {
+    margin-bottom: 0.5rem;
+}
+
+.project-tech-used {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* Styles pour la Rubrique des Cours (Intégrée) */
+
+.course-sidebar {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.course-sidebar h2 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem; 
+    font-weight: 700;
+}
+
+.module-semester h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+.module-list {
+    list-style: disc inside; 
+    padding-left: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem; 
+    line-height: 1.6;
+}
+
+.module-list li {
+    margin-left: 1.5rem; 
+}
+
+.course-title {
+    color: var(--accent); 
+    font-weight: 700; 
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* --- Réactivité --- */
+
+@media (max-width: 768px) {
+    .two-columns-layout {
+        flex-direction: column; 
+        gap: 2rem;
+    }
+}
+
+/* Style du bouton de téléchargement (Utilise la couleur accent par défaut) */
+.download-button {
+    margin: 2rem auto; 
+    display: table; 
+    padding: 0.8rem 1.6rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #1e5a8f; 
+}
+
+/* ------------------------------------- */
+/* --- Styles pour la Page Carrière --- */
+/* ------------------------------------- */
+
+.career-layout {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.career-resources {
+    flex: 1; 
+    min-width: 250px;
+}
+
+.career-details {
+    flex: 2; 
+    min-width: 350px;
+}
+
+/* Styles des Titres des Colonnes */
+.career-resources h2,
+.career-details h2 {
+    color: var(--accent);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* --- Styles des Cartes de Ressources (CV, LinkedIn) --- */
+
+.resource-card {
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.resource-button {
+    margin-top: 0.8rem;
+    display: inline-block; 
+}
+
+.cv-card .download-button {
+    display: inline-block;
+    width: 48%; 
+    margin: 0.5rem 1%;
+}
+
+/* --- Styles des Blocs de Détails (Expériences, Intérêts) --- */
+
+.detail-block {
+    padding: 1.5rem;
+    background: #fdfdfd; /* Fond légèrement différent */
+    border-left: 5px solid var(--accent);
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.detail-block h3 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.internship-date {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+
+/* --- Réactivité --- */
+
+@media (max-width: 768px) {
+    .career-layout {
+        flex-direction: column; /* Empiler les colonnes */
+    }
+    .cv-card .download-button {
+        display: block;
+        width: 90%;
+        margin: 0.5rem auto;
+    }
+}

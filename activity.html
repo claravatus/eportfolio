@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compétences — Mon E-Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Compétences techniques et professionnelles">
+</head>
+<body>
+  <header>
+    <nav class="navbar"> 
+        
+        <a href="index.html" class="navbar-brand">
+            CLARA VATUS — STUDENT ENGINEER
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+            &#9776; </button>
+        
+        <ul class="navbar-links-list">
+            <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
+            <li><a href="mobility.html"> MOBILITY</a></li>
+            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html"> ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        menuToggle.addEventListener('click', function() {
+            // Bascule la classe 'is-open' pour afficher/cacher le menu
+            navbarLinksList.classList.toggle('is-open');
+            
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+</script>
+
+
+  <main class="container">
+    <h1 class="course-title"> Others activities</h1>
+    <p>
+      I am a very creative person with a strong artistic and literary streak. As a result, I have many passions 
+      that I pursue whenever I have time!
+    </p>
+
+    <section class="activity-grid">
+        
+        <article class="activity-card" style="background-image: url('images/painting.jpeg');">
+            <a href="hobby/painting.html" class="card-content">
+                <h3> DRAWING/PAINTING</h3>
+                <p>Read More ...</p>
+            </a>
+        </article>
+
+        <article class="activity-card middle-card" style="background-image: url('images/cooking.jpeg');">
+            <a href="hobby/cooking.html" class="card-content">
+                <h3>COOKING </h3>
+                <p>Read More ...</p>
+            </a>
+        </article>
+
+        <article class="activity-card" style="background-image: url('images/piano.jpeg');">
+            <a href="hobby/piano.html" class="card-content">
+                <h3> PIANO </h3>
+                <p>Read More ...</p>
+            </a>
+        </article>
+        
+        <article class="activity-card" style="background-image: url('images/reading.jpeg');">
+            <a href="hobby/reading.html" class="card-content">
+                <h3>READING</h3>
+                <p>Read More ...</p>
+            </a>
+        </article>
+
+        <article class="activity-card middle-card" style="background-image: url('images/writing.jpeg');">
+            <a href="hobby/writing.html" class="card-content">
+                <h3> WRITING</h3>
+                <p>Read More ...</p>
+            </a>
+        </article>
+        
+    </section>
+</main>
+
+  <footer>
+    <div class="footer-content">
+        <p>&copy; 2025 — My E-Portfolio</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
+                My Linkedin </a>
+        </div>
+    </div>
+  </footer>
+</body>
+</html>

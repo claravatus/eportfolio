@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Compétences — Mon E-Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Compétences techniques et professionnelles">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="navbar-brand">
+                CLARA VATUS — STUDENT ENGINEER
+            </a>
+
+            <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+                &#9776; </button>
+
+            <ul class="navbar-links-list">
+                <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
+                <li><a href="mobility.html"> MOBILITY</a></li>
+                <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+                <li><a href="activity.html"> ACTIVITIES</a></li>
+                <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbarLinksList = document.querySelector('.navbar-links-list');
+
+            menuToggle.addEventListener('click', function () {
+                // Bascule la classe 'is-open' pour afficher/cacher le menu
+                navbarLinksList.classList.toggle('is-open');
+
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+        });
+    </script>
+
+    <main class="container">
+
+        <section class="hero-mobility">
+            <div class="mobility-image-container">
+                <img src="images/voyage.jpeg" alt="Image de voyage" class="mobility-hero-image">
+                <h1 class="mobility-hello">MOBILITY</h1>
+            </div>
+            <div class="mobility-intro-text">
+                <p>
+                    Over the past few years, I have had the opportunity to travel to different parts of the world.
+                    Despite being very introverted and not particularly enjoying going out, I have learned to appreciate
+                    it.
+                    Whether culturally, culinarily, or historically, each trip I have taken has taught me a new and
+                    interesting
+                    skill. For example, it has taught me how to communicate with strangers and broaden my worldview!
+                </p>
+                <p>
+                    Although most of my trips are still family trips, my goal would be to one day be able to go on an
+                    exchange
+                    or internship in one of my dream destinations, the Scandinavian countries, so I can observe the
+                    starry sky
+                    and the Northern Lights.
+                </p>
+            </div>
+        </section>
+
+        </section> 
+        
+        <section class="language-skills">
+    <h2>Language Proficiency</h2>
+    
+    <div class="language-skills-grid"> 
+        
+        <div class="skill-bar-item">
+            <p>French (Native)</p>
+            <div class="skill-bar-container">
+                <div class="skill-bar-level" style="width: 100%;">C2</div>
+            </div>
+        </div>
+
+        <div class="skill-bar-item">
+            <p>English </p>
+            <div class="skill-bar-container">
+                <div class="skill-bar-level" style="width: 65%;">B1</div>
+            </div>
+        </div>
+
+        <div class="skill-bar-item">
+            <p> German</p>
+            <div class="skill-bar-container">
+                <div class="skill-bar-level" style="width: 60%;">A2</div>
+            </div>
+        </div>
+
+        <div class="skill-bar-item">
+            <p>French sign language </p>
+            <div class="skill-bar-container">
+                <div class="skill-bar-level" style="width: 40%;">A1</div>
+            </div>
+        </div>
+
+    </div> </section>
+
+
+<br>
+
+
+        <section class="mobility-timeline">
+
+        <section class="mobility-timeline">
+            <h2 style="color: var(--accent);">My personal travels</h2>
+
+            <article class="timeline-item timeline-right">
+                <div class="timeline-image-wrapper">
+                    <img src="images/Rome.jpg" alt="TRAVEL No1 : Roma " class="timeline-image">
+                </div>
+                <div class="timeline-text-wrapper">
+                    <h3> Trip to Rome </h3>
+                    <p class="timeline-date"> Summer 2023</p>
+                    <p>
+                        Although the trip lasted only a week, I visited the Vatican, the city's main monuments,
+                        discovered
+                        the main culinary specialties, and even attended a concert! I was able to chat in English with a
+                        few locals.
+                    </p>
+                </div>
+            </article>
+
+            <article class="timeline-item timeline-left">
+                <div class="timeline-image-wrapper">
+                    <img src="images/Venise.jpg" alt="TRAVEL No2" class="timeline-image">
+                </div>
+                <div class="timeline-text-wrapper">
+                    <h3> Trip to Venice </h3>
+                    <p class="timeline-date">Spring 2022</p>
+                    <p>
+                        I was able to visit the entire city and its surrounding islands. It was my first time in Italy,
+                        and I was able to hold conversations in English and say a few phrases in Italian.
+                    </p>
+                    </p>
+            </article>
+
+            <article class="timeline-item timeline-right">
+                <div class="timeline-image-wrapper">
+                    <img src="images/londres.png" alt="TRAVEL No3" class="timeline-image">
+                </div>
+                <div class="timeline-text-wrapper">
+                    <h3> Trip to London </h3>
+                    <p class="timeline-date">Spring 2019</p>
+                    <p>
+                        It was my first time outside France (apart from Portugal), and I was able to explore the whole
+                        city.
+                        I even got to chat with foreigners for the first time.
+                    </p>
+                    </p>
+            </article>
+
+            <article class="timeline-item timeline-left">
+                <div class="timeline-image-wrapper">
+                    <img src="images/porto.jpg" alt="TRAVEL No4" class="timeline-image">
+                </div>
+                <div class="timeline-text-wrapper">
+                    <h3> Portugal </h3>
+                    <p class="timeline-date">Every summer </p>
+                    <p>
+                        Every summer, I go with my family to northern Portugal, where part of my family lives. So I have
+                        visited all
+                        the major cities in Portugal, including Porto and Lisbon. Although I have never learned
+                        Portuguese,
+                        I can understand most of what is said.
+                    </p>
+                    </p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 — My E-Portfolio</p>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
+                    My Linkedin </a>
+            </div>
+        </div>
+    </footer>
+
+</html>

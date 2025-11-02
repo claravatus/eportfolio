@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compétences — Mon E-Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Compétences techniques et professionnelles">
+</head>
+<body>
+  <header>
+    <nav class="navbar"> 
+        
+        <a href="index.html" class="navbar-brand">
+            CLARA VATUS — STUDENT ENGINEER
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+            &#9776; </button>
+        
+        <ul class="navbar-links-list">
+            <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
+            <li><a href="mobility.html"> MOBILITY</a></li>
+            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html"> ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        menuToggle.addEventListener('click', function() {
+            navbarLinksList.classList.toggle('is-open');
+            
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+</script>
+
+ <main class="container">
+    <h1 class="course-title">Career Development & Goals</h1>
+
+    <div class="career-layout">
+        
+        <section class="career-resources">
+            <h2>Career Resources</h2>
+            
+            <article class="resource-card linkedin-card">
+                <h3>LinkedIn Profile</h3>
+                <p>My detailed professional history and network.</p>
+                <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" class="button resource-button">
+                    View Profile
+                </a>
+            </article>
+
+            <article class="resource-card cv-card">
+                <h3>Curriculum Vitae (CV)</h3>
+                
+                <p class="cv-link-group">
+                    <a href="/doc/CVfrench.pdf" class="button download-button" target="_blank">
+                        French CV (PDF)
+                    </a>
+                    <a href="/doc/CVenglish.pdf" class="button download-button" target="_blank">
+                        English CV (PDF)
+                    </a>
+                </p>
+            </article>
+            
+            </section>
+
+
+        <section class="career-details">
+            <h2>Career Interests & Experience</h2>
+
+            <article class="detail-block interests-block">
+                <h3>Targeted Career Paths</h3>
+                <p>Based on my coursework and skills, I am highly interested in:</p>
+                <ul>
+                    <li> <strong> Cybersecurity</strong>: Focusing on penetration testing and security analysis.</li>
+                    <li><strong> Big Data Engineering</strong>:Data pipeline optimization and developing robust ETL processes.</li>
+                </ul>
+            </article>
+
+            <article class="detail-block internships-block">
+                <h3>Internships & Professional Experience</h3>
+                
+                <h4> PIINK TEKNOLOGY - Apprentice </h4>
+                <p class="internship-date"> Spring 2025</p>
+                <p>During my internship, I performed the duties of a <strong> tester</strong>: 
+                  I manually tested their Piink Me product, recorded errors 
+                  in a spreadsheet, and wrote test plans. During this 
+                  internship, I learned to be very thorough (in testing) 
+                  but also to be concise and precise in my reports.</p>
+                
+                  <h4> SOLUCES TECHNOLOGIES - Apprentice </h4>
+                <p class="internship-date"> Summer 2024</p>
+                <p>During this internship, I worked with a second intern to develop 
+                  the front end of their internal website. I learned how to work 
+                  in a team, how to use GitHub, Docker and JavaScript. I also 
+                  acquired some basic design skills.</p>
+
+                </article>
+
+            <article class="detail-block goals-block">
+                <h3>Future Goals</h3>
+                <p> It's a bit early to decide, but my goal 
+                  is to focus on one of the two areas that 
+                  interest me and do internships in that field. </p>
+            </article>
+
+        </section>
+
+    </div>
+</main>
+
+  <footer>
+    <div class="footer-content">
+        <p>&copy; 2025 — My E-Portfolio</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
+                My Linkedin </a>
+        </div>
+    </div>
+  </footer>
+</body>
+</html>

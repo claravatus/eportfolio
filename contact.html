@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Mon E-Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Contactez-moi">
+</head>
+<body>
+ <header>
+    <nav class="navbar"> 
+        
+        <a href="index.html" class="navbar-brand">
+            CLARA VATUS — STUDENT ENGINEER
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+            &#9776; </button>
+        
+        <ul class="navbar-links-list">
+            <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
+            <li><a href="mobility.html"> MOBILITY</a></li>
+            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html"> ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        menuToggle.addEventListener('click', function() {
+            // Bascule la classe 'is-open' pour afficher/cacher le menu
+            navbarLinksList.classList.toggle('is-open');
+            
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+</script>
+
+<main class="container contact-page">
+    <h1 class="course-title"> How to contact me</h1>
+    <p class="contact-intro-text">
+        Please do not hesitate to contact me for any collaboration opportunities, 
+        internships, or to discuss my projects. I am always delighted to exchange 
+        ideas.
+    </p>
+
+    <div class="contact-details">
+        
+        <article class="contact-card email-card">
+            <h3>Contact by Email</h3>
+            <p>The most direct way to contact me. </p>
+            <a href="mailto:clara.vatus@gmail.com" class="button contact-button">
+                Send an Email 
+            </a>
+        </article>
+
+        <article class="contact-card linkedin-card">
+            <h3>My LinkedIn profile </h3>
+            <p>View my professional background.</p>
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" class="button contact-button">
+                View profile
+            </a>
+        </article>
+
+        <article class="contact-card phone-card">
+            <h3> Telephone contact </h3>
+            <p>Available for professional exchange.</p>
+            <a href="tel:+33612345678" class="button contact-button">
+                Call : +33 7 81 94 63 17
+            </a>
+        </article>
+
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 — My E-Portfolio</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
+                My Linkedin </a>
+        </div>
+    </div>
+  </footer>
+
+</body>
+</html>

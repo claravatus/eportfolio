@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projets - Mon E-Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+   <header>
+    <nav class="navbar"> 
+        
+        <a href="index.html" class="navbar-brand">
+            CLARA VATUS — STUDENT ENGINEER
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+            &#9776; </button>
+        
+        <ul class="navbar-links-list">
+            <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
+            <li><a href="mobility.html"> MOBILITY</a></li>
+            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html"> ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        menuToggle.addEventListener('click', function() {
+            // Bascule la classe 'is-open' pour afficher/cacher le menu
+            navbarLinksList.classList.toggle('is-open');
+            
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+</script>
+
+<main class="container">
+    <h1 class="course-title">Engineering Course Overview</h1>
+    <p class="intro-course">
+        Currently a 1st-year student in the ENSEEIHT Engineering cycle, 
+        I possess a <strong> versatile profile</strong> and a strong curiosity 
+        for the fields of <strong> Cybersecurity</strong> and 
+        <strong>Big Data</strong>. My approach focuses 
+        on the rapid acquisition of new technical and methodological skills.
+    </p>
+
+    <div class="two-columns-layout">
+        
+        <section class="skills-matrix">
+            
+            <div class="course-sidebar">
+                <h2>Core Modules Overview</h2>
+                
+                <article class="module-semester">
+                    <h3>Semester 1 </h3>
+                    <ul class="module-list">
+                        <li>Probabilities</li>
+                        <li> Modeling architecture</li>
+                        <li> Imperative programming</li>
+                        <li> Statistics</li>
+                        <li> Data analysis </li>
+                        <li> Soft skills (english, career and management, french sign language)</li>
+                    </ul>
+                </article>
+
+            </div>
+            <h2 style="color: var(--accent);">Technical Skills & Tools</h2>
+            
+            <article class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-badges">
+                    <span class="badge badge-python">Python</span>
+                    <span class="badge badge-js">JavaScript / Vite </span>
+                    <span class="badge badge-dart">Dart / Flutter </span>
+                    <span class="badge badge-web">HTML / CSS</span>
+                    <span class="badge badge-ada">Ada</span>
+                </div>
+            </article>
+
+            <article class="skill-category">
+                <h3>Tools, Systems & Environment</h3>
+                <div class="skill-badges">
+                    <span class="badge badge-github">Git / GitHub</span>
+                    <span class="badge badge-linux">Linux</span>
+                    <span class="badge badge-ide">VS Code</span>
+                    <span class="badge badge-ide">IntelliJ IDEA</span>
+                </div>
+            </article>
+
+            <article class="skill-category">
+                <h3>Methods & Soft Skills</h3>
+                <div class="skill-badges">
+                    <span class="badge badge-methode">Refinement Methods</span>
+                    <span class="badge badge-methode">Time Management </span>
+                    <span class="badge badge-methode">Work Organization and Fragmentation</span>
+                </div>
+            </article>
+            
+        </section> <section class="project-showcase">
+            <h2>Academic Projects & Achievements</h2>
+            
+            <article class="project-entry">
+                <h3>Lightweight Applications (Dart/Flutter)</h3>
+                <p>Development of several small applications (password generator, notepad) to understand multiplatform development. Focus on UX and Dart logic.</p>
+                <p class="project-tech-used">Techs: Dart, Flutter, VS Code.</p>
+            </article>
+
+            <article class="project-entry">
+                <h3>Algorithmic Mini-Projects (Python)</h3>
+                <p>Development of a complete Connect Four game and various calculating codes. Application of basic algorithmic concepts and functional programming.</p>
+                <p class="project-tech-used">Techs: Python.</p>
+            </article>
+
+            <article class="project-entry">
+                <h3>Front-End and Web Project (Internship)</h3>
+                <p>Design and development of user interfaces (Front-end) during an internship, complemented by the creation of this portfolio. Application of web standards and responsive design.</p>
+                <p class="project-tech-used">Techs: HTML, CSS, JavaScript.</p>
+            </article>
+        </section> </div> </main>
+
+        <footer>
+    <div class="footer-content">
+        <p>&copy; 2025 — My E-Portfolio</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
+                My Linkedin </a>
+        </div>
+    </div>
+  </footer>
+
+</body>
+</html>
