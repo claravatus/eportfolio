@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compétences — Mon E-Portfolio</title>
+  <link rel="stylesheet" href="/style.css">
+  <meta name="description" content="Compétences techniques et professionnelles">
+</head>
+<body>
+  <header>
+    <nav class="navbar"> 
+        
+        <a href="index.html" class="navbar-brand">
+            CLARA VATUS — STUDENT ENGINEER
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
+            &#9776; </button>
+        
+        <ul class="navbar-links-list">
+            <li><a href="../engineering-course.html">ENGINEERING COURSES</a></li>
+            <li><a href="../mobility.html"> MOBILITY</a></li>
+            <li><a href="../civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
+            <li><a href="../activity.html"> ACTIVITIES</a></li>
+            <li><a href="../career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="../contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        menuToggle.addEventListener('click', function() {
+            // Bascule la classe 'is-open' pour afficher/cacher le menu
+            navbarLinksList.classList.toggle('is-open');
+            
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+</script>
+
+<main class="container">
+    
+    <a href="../activity.html" class="back-link">&larr; Back to activity page</a>
+    
+    <section class="hobby-hero">
+        <div class="hobby-hero-image-container">
+            <img src="../images/writing.jpeg" alt="WRITING" class="hobby-main-image">
+            
+            <h1 class="hobby-title"> WRITING</h1>
+        </div>
+        
+        <p class="hobby-intro-text">
+            One of my favorite activities! I have been writing a lot and about everything since I 
+            was ten years old: romances, dystopias, dramatic comedies, historical dramas, poetry... 
+            It is by wanting to learn about this or that subject while writing books, by thinking about 
+            scenarios and plot twists, that my curiosity and creativity develop. What's more, this activity 
+            allows me to express myself very well in writing, to synthesize my thoughts, to be clear, and 
+            all without spelling mistakes.
+        </p>
+
+    </section>
