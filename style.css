@@ -1,6 +1,6 @@
 :root {
   --bg: #f6f7fb;
-  --card: #ffffff;
+  --card: #fff;
   --accent: #2b6cb0;
   --text: #222;
 }
@@ -10,16 +10,14 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
   margin: 0;
   background: var(--bg);
   color: var(--text);
 }
 
-/* ===================================== */
-/* --- Layouts Globaux & Composants --- */
-/* ===================================== */
+/* --- Layouts & Composants de base --- */
 
 .container {
   max-width: 1000px;
@@ -34,31 +32,46 @@ body {
   gap: 1rem;
 }
 
+.cards {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.project-card,
+.cards article,
+.project-entry,
+.resource-card,
+.contact-card {
+  background: var(--card);
+  border-radius: 8px;
+}
+
 .project-card,
 .cards article {
-  background: var(--card);
   padding: 1rem;
-  border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .button,
-button {
+button,
+.contact-button,
+.download-button {
   background: var(--accent);
-  color: white;
+  color: #fff;
   border-radius: 6px;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .button {
   display: inline-block;
   padding: 0.4rem 0.7rem;
-  text-decoration: none;
 }
 
 button {
   border: none;
   padding: 0.6rem 1rem;
+  cursor: pointer;
 }
 
 footer {
@@ -90,20 +103,14 @@ form.contact-form textarea {
   font-size: 2rem;
   font-weight: 700;
   color: var(--text);
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  margin: 4rem auto 2rem;
   border-bottom: 3px solid var(--accent);
-  padding-bottom: 0.5rem;
-  padding-right: 1rem;
+  padding: 0 1rem 0.5rem 0;
   display: block;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* ===================================== */
 /* --- Navigation --- */
-/* ===================================== */
 
 .navbar {
   background: var(--card);
@@ -135,12 +142,10 @@ form.contact-form textarea {
 .navbar-links-list {
   list-style: none;
   display: flex;
-  gap: 0;
   margin: 0;
   padding: 0;
   width: 50%;
   justify-content: flex-end;
-  flex-wrap: nowrap;
   min-width: 0;
 }
 
@@ -152,8 +157,7 @@ form.contact-form textarea {
   padding: 0.85rem 0.75rem 0.65rem;
   color: var(--text);
   text-decoration: none;
-  border-radius: 0;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+  transition: color 0.3s, border-bottom 0.3s;
   white-space: nowrap;
 }
 
@@ -161,19 +165,16 @@ form.contact-form textarea {
   background: none;
   text-decoration: none;
   color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .navbar-links-list a.active {
   background: var(--accent);
-  color: white;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 0.65rem;
+  color: #fff;
+  border-bottom-color: var(--accent);
 }
 
-/* ===================================== */
-/* --- Hero Section & Index --- */
-/* ===================================== */
+/* --- Héro & Titres en surimpression --- */
 
 .hero-section {
   padding: 3rem 1rem;
@@ -190,15 +191,21 @@ form.contact-form textarea {
   padding-left: 10%;
 }
 
-.hero-image-container {
+.hero-image-container,
+.mobility-image-container,
+.civic-image-container {
   position: relative;
+}
+
+.hero-image-container {
   flex: 2;
   min-width: 300px;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.hero-image {
+.hero-image,
+.mobility-hero-image {
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -206,19 +213,24 @@ form.contact-form textarea {
   display: block;
 }
 
-.hero-hello {
+.hero-hello,
+.mobility-hello,
+.civic-hello {
   position: absolute;
-  top: -2%;
-  left: -60%;
   transform: translateY(-50%);
-  font-size: 8rem;
   font-weight: 900;
   color: var(--accent);
-  opacity: 0.8;
   line-height: 1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 2;
   pointer-events: none;
+}
+
+.hero-hello {
+  top: -2%;
+  left: -60%;
+  font-size: 8rem;
+  opacity: 0.8;
 }
 
 .hero-text-presentation {
@@ -228,31 +240,32 @@ form.contact-form textarea {
   text-align: justify;
 }
 
-.hero-text-presentation p {
+.hero-text-presentation p,
+.contact-intro-text,
+.intro-course {
   font-size: 1.15rem;
+}
+
+.hero-text-presentation p {
   line-height: 1.8;
   color: var(--text);
 }
 
-/* ===================================== */
-/* --- Galerie de Cartes --- */
-/* ===================================== */
+/* --- Cartes génériques & Activités --- */
 
-.cards {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding-bottom: 3rem;
-}
-
-.card-link {
+.card-link,
+.activity-card {
   background-size: cover;
   background-position: center;
-  height: 300px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
+}
+
+.card-link {
+  height: 300px;
 }
 
 .card-link:hover {
@@ -260,7 +273,8 @@ form.contact-form textarea {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card-content {
+.card-content,
+.activity-card .card-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -268,9 +282,12 @@ form.contact-form textarea {
   height: 100%;
   padding: 1.5rem;
   text-decoration: none;
-  color: white;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-  transition: background 0.3s ease;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.card-content {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .card-link:hover .card-content {
@@ -278,7 +295,7 @@ form.contact-form textarea {
 }
 
 .card-content h3 {
-  margin: 0 0 0.3rem 0;
+  margin: 0 0 0.3rem;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -289,46 +306,55 @@ form.contact-form textarea {
   opacity: 0.8;
 }
 
-/* ===================================== */
-/* --- Section Mobilité & Compétences --- */
-/* ===================================== */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 3rem 0;
+}
 
-.hero-mobility {
+.activity-card {
+  height: 350px;
+}
+
+.activity-grid .middle-card {
+  transform: translateY(50px);
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.activity-grid .middle-card:hover {
+  transform: translateY(40px);
+}
+
+.activity-card .card-content {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+}
+
+/* --- Mobilité, Compétences & Chronologie --- */
+
+.hero-mobility,
+.hero-civic {
   display: flex;
-  flex-direction: row;
   gap: 3rem;
   align-items: flex-start;
   margin-bottom: 5rem;
 }
 
 .mobility-image-container {
-  position: relative;
   flex: 2;
   min-width: 300px;
   max-width: 500px;
 }
 
-.mobility-hero-image {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  display: block;
-}
-
 .mobility-hello {
-  position: absolute;
   top: -2%;
   left: 60%;
-  transform: translateY(-50%);
   font-size: 8rem;
-  font-weight: 900;
-  color: var(--accent);
   opacity: 0.9;
-  line-height: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 2;
-  pointer-events: none;
 }
 
 .mobility-intro-text {
@@ -343,11 +369,24 @@ form.contact-form textarea {
   padding: 1rem;
 }
 
-.language-skills h2 {
+.language-skills h2,
+.mobility-timeline h2 {
   text-align: center;
-  color: var(--accent);
-  margin-bottom: 2rem;
   font-size: 1.8rem;
+}
+
+.language-skills h2,
+.career-resources h2,
+.career-details h2,
+.course-sidebar h2,
+.project-entry h3,
+.detail-block h3,
+.contact-card h3 {
+  color: var(--accent);
+}
+
+.language-skills h2 {
+  margin-bottom: 2rem;
   font-weight: 700;
 }
 
@@ -363,7 +402,7 @@ form.contact-form textarea {
 
 .skill-bar-item p {
   font-weight: 400;
-  margin: 0 0 0.4rem 0;
+  margin: 0 0 0.4rem;
   font-size: 1rem;
 }
 
@@ -376,7 +415,7 @@ form.contact-form textarea {
 
 .skill-bar-level {
   background-color: var(--accent);
-  color: white;
+  color: #fff;
   height: 100%;
   line-height: 15px;
   text-align: right;
@@ -387,12 +426,12 @@ form.contact-form textarea {
 }
 
 .mobility-timeline h2 {
-  text-align: center;
-  margin-bottom: 3rem;
   font-size: 2rem;
+  margin-bottom: 3rem;
 }
 
-.timeline-item {
+.timeline-item,
+.civic-timeline-item {
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
@@ -410,71 +449,42 @@ form.contact-form textarea {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-text-wrapper {
+.timeline-text-wrapper,
+.civic-timeline-item .timeline-text-wrapper {
   flex: 2;
 }
 
-.timeline-date {
-  font-style: italic;
+.timeline-date,
+.internship-date,
+.project-tech-used {
+  font-size: 0.9rem;
   color: #666;
+  font-style: italic;
+}
+
+.timeline-date {
   margin-bottom: 1rem;
 }
 
-.timeline-right {
+.timeline-right,
+.civic-timeline-right {
   flex-direction: row;
 }
 
-.timeline-left {
+.timeline-left,
+.civic-timeline-left {
   flex-direction: row-reverse;
 }
 
-/* ===================================== */
-/* --- Galerie Activités & Détails --- */
-/* ===================================== */
-
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding: 3rem 0;
+.civic-timeline-right {
+  justify-content: flex-start;
 }
 
-.activity-card {
-  background-size: cover;
-  background-position: center;
-  height: 350px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.activity-grid .middle-card {
-  transform: translateY(50px);
-}
-
-.activity-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.activity-grid .middle-card:hover {
-  transform: translateY(40px);
-}
-
-.activity-card .card-content {
-  display: flex;
-  flex-direction: column;
+.civic-timeline-left {
   justify-content: flex-end;
-  width: 100%;
-  height: 100%;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
-  transition: background 0.3s ease;
 }
+
+/* --- Page Détail (Hobby) --- */
 
 .back-link {
   display: inline-block;
@@ -492,10 +502,15 @@ form.contact-form textarea {
   border-radius: 12px;
 }
 
-.hobby-main-image {
+.hobby-main-image,
+.gallery-photo,
+.civic-image-wrapper img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
+}
+
+.hobby-main-image {
+  height: 100%;
   display: block;
 }
 
@@ -505,7 +520,7 @@ form.contact-form textarea {
   left: 1rem;
   font-size: 4rem;
   font-weight: 900;
-  color: white;
+  color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   line-height: 1;
   z-index: 5;
@@ -518,7 +533,7 @@ form.contact-form textarea {
   color: var(--text);
   text-align: center;
   max-width: 800px;
-  margin: 1rem auto 3rem auto;
+  margin: 1rem auto 3rem;
 }
 
 .hobby-detail h2,
@@ -532,55 +547,33 @@ form.contact-form textarea {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin: 2rem 0 3rem;
 }
 
 .gallery-photo {
-  width: 100%;
   height: 380px;
-  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 
 .gallery-photo:hover {
   transform: scale(1.02);
 }
 
-/* ===================================== */
 /* --- Civic Engagement --- */
-/* ===================================== */
-
-.hero-civic {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-  align-items: flex-start;
-  margin-bottom: 5rem;
-}
 
 .civic-image-container {
-  position: relative;
   flex: 1.2;
   min-width: 200px;
   max-width: 450px;
 }
 
 .civic-hello {
-  position: absolute;
   top: 10%;
   left: 85%;
-  transform: translateY(-50%);
   font-size: 6rem;
-  font-weight: 900;
-  color: var(--accent);
   opacity: 0.9;
-  line-height: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 2;
-  white-space: normal;
   width: 150%;
 }
 
@@ -590,48 +583,26 @@ form.contact-form textarea {
   padding-top: 14rem;
 }
 
-.civic-timeline-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4rem;
-  gap: 2rem;
-}
-
 .civic-image-wrapper {
   flex: 1;
   max-width: 250px;
 }
 
-.civic-timeline-item .timeline-text-wrapper {
-  flex: 2;
-}
-
-.civic-timeline-right {
-  flex-direction: row;
-  justify-content: flex-start;
-}
-
-.civic-timeline-left {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
 .civic-image-wrapper img {
-  width: 100%;
   height: 250px;
-  object-fit: cover;
   border-radius: 8px;
 }
 
-/* ===================================== */
 /* --- Page Contact --- */
-/* ===================================== */
+
+.contact-intro-text,
+.intro-course {
+  text-align: center;
+  margin: 1.5rem auto 3rem;
+}
 
 .contact-intro-text {
-  font-size: 1.15rem;
-  text-align: center;
   max-width: 700px;
-  margin: 1.5rem auto 3rem auto;
 }
 
 .contact-details {
@@ -642,14 +613,13 @@ form.contact-form textarea {
 }
 
 .contact-card {
-  background: var(--card);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
   max-width: 350px;
   width: 100%;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 
 .contact-card:hover {
@@ -658,63 +628,69 @@ form.contact-form textarea {
 }
 
 .contact-card h3 {
-  color: var(--accent);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
 }
 
 .contact-button {
   margin-top: 1rem;
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background: var(--accent);
-  color: white !important;
-  text-decoration: none;
-  border-radius: 6px;
+  color: #fff !important;
   font-weight: 600;
 }
 
-.linkedin-card {
-  border-top: 5px solid #0077b5;
-}
+.linkedin-card { border-top: 5px solid #0077b5; }
+.email-card { border-top: 5px solid #d44638; }
+.phone-card { border-top: 5px solid #28a745; }
 
-.email-card {
-  border-top: 5px solid #d44638;
-}
-
-.phone-card {
-  border-top: 5px solid #28a745;
-}
-
-/* ===================================== */
 /* --- Engineering Course & Carrière --- */
-/* ===================================== */
 
 .intro-course {
-  font-size: 1.15rem;
-  text-align: center;
   max-width: 800px;
-  margin: 1.5rem auto 3rem auto;
+}
+
+.two-columns-layout,
+.career-layout {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
 }
 
 .two-columns-layout {
-  display: flex;
   gap: 4rem;
   margin-top: 3rem;
 }
 
 .skills-matrix,
-.project-showcase {
+.project-showcase,
+.career-resources {
   flex: 1;
+  min-width: 250px;
+}
+
+.skills-matrix,
+.project-showcase {
   min-width: 300px;
+}
+
+.career-details {
+  flex: 2;
+  min-width: 350px;
+}
+
+.career-resources h2,
+.career-details h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .skill-category h3 {
   color: var(--text);
   border-bottom: 2px solid var(--accent);
   padding-bottom: 0.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0 1rem;
   font-weight: 700;
 }
 
@@ -727,7 +703,7 @@ form.contact-form textarea {
 
 .badge {
   background-color: var(--accent);
-  color: white;
+  color: #fff;
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
   font-size: 0.9rem;
@@ -742,19 +718,19 @@ form.contact-form textarea {
 .badge-linux { background-color: #6a6a6a; }
 .badge-methode { background-color: #ffa07a; }
 
-.project-entry {
-  background: var(--card);
+.project-entry,
+.detail-block {
   padding: 1.5rem;
-  border-radius: 8px;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   border-left: 5px solid var(--accent);
 }
 
+.project-entry {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
 .project-entry h3 {
-  color: var(--accent);
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
 }
 
 .project-entry p {
@@ -762,9 +738,6 @@ form.contact-form textarea {
 }
 
 .project-tech-used {
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
   margin-top: 1rem;
 }
 
@@ -774,26 +747,22 @@ form.contact-form textarea {
 }
 
 .course-sidebar h2 {
-  color: var(--accent);
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   font-size: 1.4rem;
   font-weight: 700;
 }
 
 .module-semester h3 {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin: 1.5rem 0 0.5rem;
   color: var(--text);
   font-weight: 700;
-  margin-top: 1.5rem;
 }
 
 .module-list {
   list-style: disc inside;
   padding-left: 0;
   margin-bottom: 1rem;
-  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -815,42 +784,15 @@ form.contact-form textarea {
   display: table;
   padding: 0.8rem 1.6rem;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .download-button:hover {
   background-color: #1e5a8f;
 }
 
-.career-layout {
-  display: flex;
-  gap: 3rem;
-  margin-top: 2rem;
-}
-
-.career-resources {
-  flex: 1;
-  min-width: 250px;
-}
-
-.career-details {
-  flex: 2;
-  min-width: 350px;
-}
-
-.career-resources h2,
-.career-details h2 {
-  color: var(--accent);
-  border-bottom: 2px solid #eee;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-}
-
 .resource-card {
-  background: var(--card);
   padding: 1.5rem;
-  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
   text-align: center;
@@ -868,38 +810,22 @@ form.contact-form textarea {
 }
 
 .detail-block {
-  padding: 1.5rem;
   background: #fdfdfd;
-  border-left: 5px solid var(--accent);
   border-radius: 6px;
-  margin-bottom: 2rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .detail-block h3 {
-  color: var(--accent);
   margin-top: 0;
   font-size: 1.3rem;
 }
 
-.internship-date {
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
-}
-
-/* ===================================== */
 /* --- Vidéo --- */
-/* ===================================== */
 
 .video-section {
   max-width: 900px;
-  margin: 4rem auto 3rem auto;
+  margin: 4rem auto 3rem;
   padding: 0 1rem;
-}
-
-.video-section .section-title {
-  margin-bottom: 2rem;
 }
 
 .video-responsive {
@@ -913,8 +839,7 @@ form.contact-form textarea {
 
 .video-responsive iframe {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
@@ -963,18 +888,20 @@ form.contact-form textarea {
   .navbar-links-list a {
     padding: 0.75rem 0.5rem;
   }
-
-  .navbar-links-list a:hover,
-  .navbar-links-list a.active {
-    padding-bottom: 0.75rem;
-  }
 }
 
 @media (max-width: 900px) {
-  .hero-mobility {
+  .hero-mobility,
+  .hero-civic,
+  .timeline-item,
+  .civic-timeline-item {
     flex-direction: column;
-    align-items: center;
     text-align: center;
+  }
+
+  .hero-mobility,
+  .hero-civic {
+    align-items: center;
   }
 
   .mobility-image-container {
@@ -986,19 +913,6 @@ form.contact-form textarea {
     padding-top: 0;
   }
 
-  .timeline-item,
-  .timeline-left,
-  .timeline-right {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-civic {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
   .civic-hello {
     font-size: 3rem;
     left: 50%;
@@ -1006,16 +920,9 @@ form.contact-form textarea {
     width: auto;
   }
 
-  .civic-timeline-item,
-  .civic-timeline-left,
-  .civic-timeline-right {
-    flex-direction: column;
-    text-align: center;
-  }
-
   .civic-image-wrapper {
     max-width: 100%;
-    margin: 0 auto 1.5rem auto;
+    margin: 0 auto 1.5rem;
   }
 }
 
