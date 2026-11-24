@@ -3,155 +3,203 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Career development — My E-Portfolio</title>
+  <title>Career Development — My E-Portfolio</title>
   <link rel="stylesheet" href="/eportfolio/style.css">
-  <meta name="description" content="Compétences techniques et professionnelles">
+  <meta name="description" content="Career goals in Cybersecurity and Network Architecture, internships, and CV">
 </head>
 <body>
   <header>
     <nav class="navbar"> 
-        
         <a href="index.html" class="navbar-brand">
             CLARA VATUS — STUDENT ENGINEER
         </a>
 
         <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
-            &#9776; </button>
+            &#9776;
+        </button>
         
         <ul class="navbar-links-list">
             <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
-            <li><a href="mobility.html"> MOBILITY</a></li>
-            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
-            <li><a href="activity.html"> ACTIVITIES</a></li>
-            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="mobility.html">MOBILITY</a></li>
+            <li><a href="civic-engagement.html">CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html">ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html">CAREER DEVELOPMENT</a></li>
             <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </nav>
-</header>
+  </header>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navbarLinksList = document.querySelector('.navbar-links-list');
-
-        menuToggle.addEventListener('click', function() {
-            navbarLinksList.classList.toggle('is-open');
-            
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-        });
-    });
-</script>
-
- <main class="container">
-    <h1 class="course-title">Career Development & Goals</h1>
+  <main class="container">
+    <h1 class="course-title">Career Development &amp; Goals</h1>
 
     <div class="career-layout">
         
-        <section class="career-resources">
+        <!-- COLONNE GAUCHE : RESSOURCES (STICKY) -->
+        <aside class="career-resources">
             <h2>Career Resources</h2>
             
             <article class="resource-card linkedin-card">
                 <h3>LinkedIn Profile</h3>
-                <p>My detailed professional history and network.</p>
-                <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" class="button resource-button">
-                    View Profile
+                <p>Explore my detailed professional background, academic milestones, and network.</p>
+                <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" rel="noopener noreferrer" class="button resource-button">
+                    View Profile →
                 </a>
             </article>
 
             <article class="resource-card cv-card">
                 <h3>Curriculum Vitae (CV)</h3>
-                
-                <p class="cv-link-group">
+                <p>Download my resume in French or English:</p>
+                <div class="cv-link-group">
                     <a href="../eportfolio/doc/CVfrench.pdf" class="button download-button" target="_blank">
                         French CV (PDF)
                     </a>
                     <a href="../eportfolio/doc/CVenglish.pdf" class="button download-button" target="_blank">
                         English CV (PDF)
                     </a>
-                </p>
+                </div>
             </article>
-            
-            </section>
+        </aside>
 
-
+        <!-- COLONNE DROITE : PARCOURS & OBJECTIFS -->
         <section class="career-details">
-            <h2>Career Interests & Experience</h2>
+            <h2>Career Interests &amp; Experience</h2>
 
+            <!-- 1. OBJECTIFS DE CARRIÈRE -->
             <article class="detail-block interests-block">
                 <h3>Targeted Career Paths</h3>
-                <p>Based on my coursework and skills, I am highly interested in:</p>
-                <ul>
-                    <li> <strong> Cybersecurity</strong>: Focusing on penetration testing and security analysis.</li>
-                    <li><strong> Big Data Engineering</strong>:Data pipeline optimization and developing robust ETL processes.</li>
-                </ul>
+                <p>Based on my engineering coursework and technical curiosity, I am steering my career toward:</p>
+                <div class="career-paths-grid">
+                    <div class="path-card">
+                        <span class="path-tag">Security</span>
+                        <h4>Cybersecurity</h4>
+                        <p>Focusing on system hardening, penetration testing, vulnerability assessment, and security analysis.</p>
+                    </div>
+                    <div class="path-card">
+                        <span class="path-tag">Infrastructure</span>
+                        <h4>Network Architecture</h4>
+                        <p>Designing, configuring, and securing reliable network infrastructures, protocols, and distributed systems.</p>
+                    </div>
+                </div>
             </article>
 
-            <article class="detail-block internships-block">
-                <h3>Internships & Professional Experience</h3>
-
-              <h4> IRIT - Front-end and UI/UX Development Intern  </h4>
-                <p class="internship-date"> Summer 2026, 6 week internship</p>
-                <p> During this internship, I led the <strong>front-end development and UI/UX design</strong> 
-                  within a team of three people to create educational games designed to enhance university learning. I've realized : <br> 
-              - Front-end architecture: I was solely responsible for developing the web platform using React, 
-                  Vite and Ant Design, ensuring a fast and responsive user experience. <br> 
-              - AI integration and data management: I integrated AI-powered correction features and managed complex 
-                  asynchronous data flows via JSON structures to connect the front-end to the back-end AI agents.<br>
-              - UI/UX and performance: I designed the entire user experience (including feedback loops and interactive 
-                  dialogue systems with the AI) using Canva to create functional mock-ups, whilst optimising performance 
-                  and reducing AI latency. <br> 
-              - Project management: I effectively coordinated team workflows and version control 
-                  using GitLab and GitLab issue boards.</p>
-                
-                <h4> PIINK TEKNOLOGY - QA intern </h4>
-                <p class="internship-date"> Spring 2025, 6 week internship </p>
-                <p>
-                  During this internship, I actively contributed to the <strong> testing and quality assurance phase</strong> 
-                  of the digital product <strong> PIINK Me </strong>. I've done : <br>
-                  - Quality Assurance: Drafted automated test plans, designed user scenarios, and conducted extensive 
-                  functional and UI/UX testing, successfully identifying and documenting over 60 bugs. <br>
-                  - Software Development: Gained hands-on experience with Dart and Flutter by developing small-scale 
-                  applications and features, while mastering CMS management interfaces. <br>
-                - Hardware & IoT: Built and configured a Raspberry Pi 4 system to dynamically display images, text, 
-                  and short videos across three daisy-chained LED panels. 
-                  </p>
-                
-                  <h4> SOLUCES TECHNOLOGIES - Front-end development intern </h4>
-                <p class="internship-date"> Summer 2024, 3 week internship</p>
-                <p>I've actively Collaborated in a two-person team to <strong> design and develop the frontend 
-                  of the company’s internal website </strong>. I've done <br> 
-                - Web Development: Learned and implemented React combined with Vite to build a 
-                  fast, modern, and responsive user interface. <br> 
-                - UI/UX & Component Library: Utilized the Ant Design library to ensure a clean, 
-                  consistent, and professional visual identity. <br> 
-                - Agile & Collaboration: Managed project workflows and design specifications 
-                  using Trello and Figma to ensure smooth teamwork. 
-                </p>
-
-                </article>
-
+            <!-- 2. VISION & FUTURE GOALS -->
             <article class="detail-block goals-block">
-                <h3>Future Goals</h3>
-                <p> It's a bit early to decide, but my goal 
-                  is to focus on one of the two areas that 
-                  interest me and do internships in that field. </p>
+                <h3>Future Goals &amp; Profile Positioning</h3>
+                <p>
+                    Through my past internships, I have gained extensive hands-on experience in <strong>web development</strong>—particularly on the <strong>front-end</strong>—as well as in <strong>software testing and quality assurance</strong>. I genuinely enjoyed these experiences: designing intuitive interfaces, building clean and compact ergonomic solutions, and ensuring product reliability during the testing phase are aspects I find both creative and rewarding.
+                </p>
+                <p>
+                    However, I do not intend to pursue front-end development as my primary career path. Instead, this background serves as a strong asset that <strong>diversifies and enriches my engineering profile</strong>, giving me a user-centric and quality-driven perspective on how applications are built and tested. My goal moving forward is to specialize in <strong>Cybersecurity</strong> and <strong>Network Architecture</strong>, and to secure future internships in these fields.
+                </p>
+            </article>
+
+            <!-- 3. STAGES & EXPÉRIENCES -->
+            <article class="detail-block internships-block">
+                <h3>Internships &amp; Professional Experience</h3>
+
+                <div class="internship-timeline">
+                    <!-- STAGE 1 : IRIT -->
+                    <div class="internship-item">
+                        <div class="internship-header">
+                            <h4>IRIT — Front-End &amp; UI/UX Development Intern</h4>
+                            <span class="internship-date">Summer 2026 • 6-week internship</span>
+                        </div>
+                        <p class="internship-summary">
+                            Led the <strong>front-end development and UI/UX design</strong> within a three-person team to build educational games designed to enhance university learning.
+                        </p>
+                        <ul class="internship-list">
+                            <li><strong>Front-end architecture:</strong> Solely responsible for developing the web platform using React, Vite, and Ant Design, ensuring a fast and responsive user experience.</li>
+                            <li><strong>AI integration &amp; data management:</strong> Integrated AI-powered correction features and managed asynchronous JSON data flows connecting the interface to back-end AI agents.</li>
+                            <li><strong>UI/UX &amp; performance:</strong> Designed the complete user journey (feedback loops, interactive AI dialogue) via Canva mock-ups while optimizing performance and reducing AI latency.</li>
+                            <li><strong>Project management:</strong> Coordinated team workflows and version control using GitLab and GitLab issue boards.</li>
+                        </ul>
+                        <div class="internship-tags">
+                            <span>React</span>
+                            <span>Vite</span>
+                            <span>Ant Design</span>
+                            <span>JSON / AI Agents</span>
+                            <span>UI/UX</span>
+                            <span>GitLab</span>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 2 : PIINK TEKNOLOGY -->
+                    <div class="internship-item">
+                        <div class="internship-header">
+                            <h4>PIINK TEKNOLOGY — Quality Assurance (QA) Intern</h4>
+                            <span class="internship-date">Spring 2025 • 6-week internship</span>
+                        </div>
+                        <p class="internship-summary">
+                            Actively contributed to the <strong>testing and quality assurance phase</strong> of the digital product <strong>PIINK Me</strong>.
+                        </p>
+                        <ul class="internship-list">
+                            <li><strong>Quality Assurance:</strong> Drafted automated test plans, designed user scenarios, and conducted extensive functional and UI/UX testing, identifying and documenting over 60 bugs.</li>
+                            <li><strong>Software Development:</strong> Gained hands-on experience with Dart and Flutter by building small-scale features while mastering CMS management interfaces.</li>
+                            <li><strong>Hardware &amp; IoT:</strong> Built and configured a Raspberry Pi 4 system to dynamically display images, text, and short videos across three daisy-chained LED panels.</li>
+                        </ul>
+                        <div class="internship-tags">
+                            <span>QA &amp; Automated Testing</span>
+                            <span>Dart / Flutter</span>
+                            <span>CMS</span>
+                            <span>Raspberry Pi 4</span>
+                            <span>IoT</span>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 3 : SOLUCES TECHNOLOGIES -->
+                    <div class="internship-item">
+                        <div class="internship-header">
+                            <h4>SOLUCES TECHNOLOGIES — Front-End Development Intern</h4>
+                            <span class="internship-date">Summer 2024 • 3-week internship</span>
+                        </div>
+                        <p class="internship-summary">
+                            Collaborated in a two-person team to <strong>design and develop the front-end</strong> of the company’s internal website.
+                        </p>
+                        <ul class="internship-list">
+                            <li><strong>Web Development:</strong> Learned and implemented React combined with Vite to build a fast, modern, and responsive user interface.</li>
+                            <li><strong>UI/UX &amp; Component Library:</strong> Utilized Ant Design to ensure a clean, consistent, and professional visual identity.</li>
+                            <li><strong>Agile &amp; Collaboration:</strong> Managed project workflows and design specifications using Trello and Figma.</li>
+                        </ul>
+                        <div class="internship-tags">
+                            <span>React</span>
+                            <span>Vite</span>
+                            <span>Ant Design</span>
+                            <span>Figma</span>
+                            <span>Trello</span>
+                        </div>
+                    </div>
+                </div>
             </article>
 
         </section>
 
     </div>
-</main>
+  </main>
 
   <footer>
     <div class="footer-content">
         <p>&copy; 2025 — My E-Portfolio</p>
-
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
-                My Linkedin </a>
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                My LinkedIn
+            </a>
         </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        if (menuToggle && navbarLinksList) {
+            menuToggle.addEventListener('click', function() {
+                navbarLinksList.classList.toggle('is-open');
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+        }
+    });
+  </script>
 </body>
 </html>

@@ -3,126 +3,172 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title> Civic Engagement — My E-Portfolio</title>
+  <title>Civic Engagement — My E-Portfolio</title>
   <link rel="stylesheet" href="/eportfolio/style.css">
-  <meta name="description" content="À propos de moi">
+  <meta name="description" content="Civic engagement: Disability awareness & LSF teaching, ecological transition, and gender equality">
 </head>
 <body>
   <header>
     <nav class="navbar"> 
-        
         <a href="index.html" class="navbar-brand">
             CLARA VATUS — STUDENT ENGINEER
         </a>
 
         <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
-            &#9776; </button>
+            &#9776;
+        </button>
         
         <ul class="navbar-links-list">
             <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
-            <li><a href="mobility.html"> MOBILITY</a></li>
-            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
-            <li><a href="activity.html"> ACTIVITIES</a></li>
-            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="mobility.html">MOBILITY</a></li>
+            <li><a href="civic-engagement.html">CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html">ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html">CAREER DEVELOPMENT</a></li>
             <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </nav>
-</header>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navbarLinksList = document.querySelector('.navbar-links-list');
-
-        menuToggle.addEventListener('click', function() {
-            // Bascule la classe 'is-open' pour afficher/cacher le menu
-            navbarLinksList.classList.toggle('is-open');
-            
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-        });
-    });
-</script>
-
-
+  </header>
 
   <main class="container">
 
+    <!-- HERO CIVIC ENGAGEMENT -->
     <section class="hero-civic"> 
         <div class="civic-image-container"> 
             <img src="images/civic-engagement.jpg" alt="Civic engagement" class="mobility-hero-image">
-            <h1 class="civic-hello">CIVIC ENGAGEMENT</h1> </div>
+            <h1 class="civic-hello">CIVIC<br>ENGAGEMENT</h1>
+        </div>
         <div class="civic-intro-text"> 
-          <p>
-                Over the past few years, I have participated in numerous activities 
-                related to ecology and gender-based and sexual violence.Below is a 
-                non-exhaustive chronological list of the activities I have attended.
-            </div>
+            <p>
+                Beyond my technical engineering studies, I strongly believe in taking an active role in societal, environmental, and inclusion initiatives. Over the past few years, I have committed my time to raising awareness around <strong>accessibility and disability</strong>, the <strong>ecological transition</strong>, and the <strong>prevention of gender-based and sexual violence</strong>.
+            </p>
+            <p>
+                From leading introductory French Sign Language workshops for fellow students to participating in climate frescoes and university festivals, these experiences have strengthened my empathy, pedagogy, and sense of collective responsibility.
+            </p>
+        </div>
     </section>
-  
 
-    <section class="civic-timeline-section">
-        <h2>My civic engagement</h2>
-        
-        <article class="civic-timeline-item civic-timeline-right">
-            <div class="civic-image-wrapper">
-                <img src="images/fresque.png" alt=" FRESQUES ECOLOGIQUES " class="timeline-image">
-            </div>
-            <div class="timeline-text-wrapper">
-                <h3> Fresques écologiques </h3>
+    <!-- PILIERS D'ENGAGEMENT (APERÇU RAPIDE) -->
+    <section class="civic-pillars">
+        <div class="pillar-pill">
+            <span class="pillar-dot dot-inclusion"></span>
+            <span>Inclusion &amp; Sign Language</span>
+        </div>
+        <div class="pillar-pill">
+            <span class="pillar-dot dot-ecology"></span>
+            <span>Climate &amp; Digital Sobriety</span>
+        </div>
+        <div class="pillar-pill">
+            <span class="pillar-dot dot-equality"></span>
+            <span>Equality &amp; Prevention</span>
+        </div>
+    </section>
+
+    <!-- GRILLE DES ENGAGEMENTS -->
+    <section class="civic-initiatives">
+        <h2>Key Initiatives &amp; Actions</h2>
+
+        <div class="civic-grid">
+
+            <!-- 1. JOURNÉE SENSIBILISATION HANDICAP & LSF -->
+            <article class="civic-card card-inclusion">
+                <div class="civic-card-top">
+                    <span class="civic-category">Inclusion &amp; Accessibility</span>
+                    <span class="civic-role">Workshop Facilitator</span>
+                </div>
+                <h3>Disability Awareness Day — French Sign Language (LSF)</h3>
                 <p>
-                    Over the past few years, I have attended many ecological frescoes. 
-                    For example, I attended the climate frescoes twice and then once each 
-                    for the biodiversity, digital and planetary boundaries frescoes. 
-                    In 2024, I also attended the two-tonne workshop that took place 
-                    at the INP preparatory school.                   
+                    During a full-day university disability awareness event, I led interactive introductory sessions for groups of students on <strong>French Sign Language (LSF)</strong>. I explained how visual-gestural communication works, shared key cultural insights about the Deaf community, and taught participants practical basics—such as fingerspelling, greetings, and how to introduce themselves.
                 </p>
-            </div>
-        </article>
+                <div class="civic-tags">
+                    <span>Peer Teaching</span>
+                    <span>French Sign Language</span>
+                    <span>Accessibility</span>
+                    <span>Public Speaking</span>
+                </div>
+            </article>
 
-        <article class="civic-timeline-item civic-timeline-left">
-            <div class="civic-image-wrapper">
-                <img src="images/kingkong.jpeg" alt="King Kong" class="timeline-image">
-            </div>
-            <div class="timeline-text-wrapper">
-                <h3> King Kong trial </h3>
+            <!-- 2. FESTIVAL FUTUR PROCHE (3 ÉDITIONS) -->
+            <article class="civic-card card-ecology">
+                <div class="civic-card-top">
+                    <span class="civic-category">Ecological &amp; Societal Transition</span>
+                    <span class="civic-role">3 Editions Attended</span>
+                </div>
+                <h3>"Futur Proche" Festival</h3>
                 <p>
-                    I also attended two performances of an interactive play called "The Trial 
-                    of King Kong". This play deals with gender-based and sexual violence in 
-                    the student community. Hosted by a criminal court judge, this play was 
-                    very informative. 
+                    I have participated in the annual <strong>"Futur Proche"</strong> transition festival for three consecutive years. Across these editions, I took part in collaborative frescoes and attended conferences covering the <strong>environmental impact of Artificial Intelligence</strong>, sustainable food systems, economic degrowth with an economist author, and the <strong>Matilda effect</strong> in science.
                 </p>
-            </p>
-        </article>
+                <div class="civic-tags">
+                    <span>AI Environmental Impact</span>
+                    <span>Frescoes</span>
+                    <span>Degrowth</span>
+                    <span>Women in Science</span>
+                </div>
+            </article>
 
-        <article class="civic-timeline-item civic-timeline-right">
-            <div class="civic-image-wrapper">
-                <img src="images/futurproche.png" alt="FUTUR PROCHE" class="timeline-image">
-            </div>
-            <div class="timeline-text-wrapper">
-                <h3> "Futur proche" festival </h3>
+            <!-- 3. FRESQUES ÉCOLOGIQUES & ATELIER 2 TONNES -->
+            <article class="civic-card card-ecology">
+                <div class="civic-card-top">
+                    <span class="civic-category">Climate &amp; Sustainability</span>
+                    <span class="civic-role">Active Participant</span>
+                </div>
+                <h3>Ecological Frescoes &amp; "2Tonnes" Workshop</h3>
                 <p>
-                    I participated in the one-day "Futur proches" festival for 
-                    two consecutive years. During these days, I attended a conference 
-                    on the ecological impact of AI, a presentation on the Matilda effect, 
-                    a presentation on how to eat responsibly, and a videoconference with 
-                    an economist author on the idea of economic degrowth. 
+                    To better understand systemic environmental challenges, I completed several collaborative science-based workshops: the <strong>Climate Fresk</strong> (twice), the <strong>Biodiversity Fresk</strong>, the <strong>Digital Fresk</strong>, and the <strong>Planetary Boundaries Fresk</strong>. In 2024, I also took part in the interactive <strong>2Tonnes</strong> simulation workshop at the INP preparatory school.
                 </p>
-            </p>
-        </article>
+                <div class="civic-tags">
+                    <span>Climate Fresk (×2)</span>
+                    <span>Digital &amp; Biodiversity</span>
+                    <span>Planetary Boundaries</span>
+                    <span>2Tonnes (2024)</span>
+                </div>
+            </article>
 
-        </section>
+            <!-- 4. LE PROCÈS DE KING KONG -->
+            <article class="civic-card card-equality">
+                <div class="civic-card-top">
+                    <span class="civic-category">Equality &amp; Prevention</span>
+                    <span class="civic-role">Forum Theater</span>
+                </div>
+                <h3>"The Trial of King Kong" — Interactive Play</h3>
+                <p>
+                    I attended two performances of the interactive forum-theater play <strong>"The Trial of King Kong"</strong>, addressing gender-based and sexual violence within the student community. Co-hosted by a criminal court judge, the sessions encouraged open debate on consent, bystander intervention, and legal frameworks.
+                </p>
+                <div class="civic-tags">
+                    <span>GBV Prevention</span>
+                    <span>Student Community</span>
+                    <span>Civic Debate</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
   </main>
 
   <footer>
     <div class="footer-content">
         <p>&copy; 2025 — My E-Portfolio</p>
-
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
-                My Linkedin </a>
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                My LinkedIn
+            </a>
         </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        if (menuToggle && navbarLinksList) {
+            menuToggle.addEventListener('click', function() {
+                navbarLinksList.classList.toggle('is-open');
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+        }
+    });
+  </script>
 </body>
 </html>

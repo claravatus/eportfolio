@@ -516,7 +516,7 @@ form.contact-form textarea {
 
 .hero-mobility {
   display: flex;
-  gap: clamp(1.2rem, 2.5vw, 2.2rem); /* Écart normal et resserré entre photo et texte */
+  gap: clamp(1.2rem, 2.5vw, 2.2rem);
   align-items: stretch;
   margin-top: 3.5rem;
   margin-bottom: 4.5rem;
@@ -539,11 +539,10 @@ form.contact-form textarea {
 
 .mobility-hello {
   position: absolute;
-  top: -0.15em;
+  top: 0;
   left: 55%;
-  transform: translateY(-40%);
-  margin-top: 40px;
-  font-size: clamp(4.7rem, 9.5vw, 8.8rem); /* Grand titre responsive */
+  transform: translateY(-70%); 
+  font-size: clamp(4.7rem, 9.5vw, 8.8rem);
   font-weight: 900;
   color: var(--accent);
   line-height: 0.95;
@@ -559,8 +558,8 @@ form.contact-form textarea {
   min-width: 260px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Aligne le bas du texte avec le bas de l'image */
-  padding-top: clamp(4.5rem, 9vw, 8rem); /* Laisse la place au grand titre en haut */
+  justify-content: center; /* Centre le texte verticalement sous le titre au lieu de le coller tout en bas */
+  padding-top: clamp(4.2rem, 8.2vw, 7.5rem); /* Suit exactement la hauteur du titre selon la taille de l'écran */
 }
 
 .mobility-intro-text p {
@@ -864,36 +863,202 @@ form.contact-form textarea {
   transform: scale(1.02);
 }
 
-/* --- Civic Engagement --- */
+/* --- Civic Engagement (Hero & Cartes Modernisées) --- */
+
+.hero-civic {
+  display: flex;
+  gap: clamp(1.2rem, 2.5vw, 2.4rem);
+  align-items: stretch;
+  margin-top: 3.5rem;
+  margin-bottom: 3rem;
+}
 
 .civic-image-container {
-  flex: 1.2;
-  min-width: 200px;
-  max-width: 450px;
+  flex: 1 1 42%;
+  max-width: 440px;
+  min-width: 240px;
+  position: relative;
+  display: flex;
 }
 
 .civic-hello {
-  top: 10%;
-  left: 85%;
-  font-size: 6rem;
-  opacity: 0.9;
-  width: 150%;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  transform: translateY(-25%);
+  font-size: clamp(3.2rem, 6.8vw, 6.2rem);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.92;
+  opacity: 0.95;
+  text-shadow: 2px 4px 12px rgba(43, 108, 176, 0.15);
+  z-index: 2;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .civic-intro-text {
-  flex: 2;
-  min-width: 250px;
-  padding-top: 14rem;
+  flex: 1 1 58%;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(5.2rem, 11vw, 9.5rem);
 }
 
-.civic-image-wrapper {
-  flex: 1;
-  max-width: 250px;
+.civic-intro-text p {
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  line-height: 1.65;
+  margin: 0 0 0.9rem 0;
+  text-align: justify;
 }
 
-.civic-image-wrapper img {
-  height: 250px;
-  border-radius: 8px;
+.civic-intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Pilules thématiques sous le hero */
+.civic-pillars {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 3.5rem;
+}
+
+.pillar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.pillar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-inclusion { background-color: #2b6cb0; }
+.dot-ecology   { background-color: #2f855a; }
+.dot-equality  { background-color: #805ad5; }
+
+/* Grille d'engagements */
+.civic-initiatives {
+  max-width: 960px;
+  margin: 0 auto 3.5rem;
+}
+
+.civic-initiatives h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.civic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.5rem;
+}
+
+.civic-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1.65rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.civic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.09);
+}
+
+/* Variantes de couleurs discrètes par thème */
+.card-inclusion { border-top-color: #2b6cb0; }
+.card-ecology   { border-top-color: #2f855a; }
+.card-equality  { border-top-color: #805ad5; }
+
+.civic-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.civic-category {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 12px;
+  background: rgba(43, 108, 176, 0.1);
+  color: #2b6cb0;
+}
+
+.card-ecology .civic-category {
+  background: rgba(47, 133, 90, 0.12);
+  color: #2f855a;
+}
+
+.card-equality .civic-category {
+  background: rgba(128, 90, 213, 0.12);
+  color: #6b46c1;
+}
+
+.civic-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  font-style: italic;
+}
+
+.civic-card h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.22rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.civic-card p {
+  margin: 0 0 1.2rem;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: #334155;
+  flex-grow: 1;
+}
+
+.civic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.civic-tags span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #dce3ec;
+  padding: 0.22rem 0.6rem;
+  border-radius: 6px;
 }
 
 /* --- Page Contact --- */
@@ -952,41 +1117,16 @@ form.contact-form textarea {
   max-width: 800px;
 }
 
-.two-columns-layout,
-.career-layout {
-  display: flex;
-  gap: 3rem;
-  margin-top: 2rem;
-}
-
 .two-columns-layout {
+  display: flex;
   gap: 4rem;
   margin-top: 3rem;
 }
 
 .skills-matrix,
-.project-showcase,
-.career-resources {
-  flex: 1;
-  min-width: 250px;
-}
-
-.skills-matrix,
 .project-showcase {
+  flex: 1;
   min-width: 300px;
-}
-
-.career-details {
-  flex: 2;
-  min-width: 350px;
-}
-
-.career-resources h2,
-.career-details h2 {
-  border-bottom: 2px solid #eee;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
 }
 
 .skill-category h3 {
@@ -1021,19 +1161,16 @@ form.contact-form textarea {
 .badge-linux { background-color: #6a6a6a; }
 .badge-methode { background-color: #ffa07a; }
 
-.project-entry,
-.detail-block {
+.project-entry {
   padding: 1.5rem;
   margin-bottom: 2rem;
   border-left: 5px solid var(--accent);
-}
-
-.project-entry {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .project-entry h3 {
   margin: 0 0 0.5rem;
+  color: var(--accent);
 }
 
 .project-entry p {
@@ -1053,6 +1190,7 @@ form.contact-form textarea {
   margin: 0 0 1rem;
   font-size: 1.4rem;
   font-weight: 700;
+  color: var(--accent);
 }
 
 .module-semester h3 {
@@ -1094,33 +1232,242 @@ form.contact-form textarea {
   background-color: #1e5a8f;
 }
 
+/* --- Career Development (Layout & Cartes Modernisées) --- */
+
+.career-layout {
+  display: flex;
+  gap: clamp(1.2rem, 2.5vw, 2.5rem);
+  margin-top: 2rem;
+  align-items: flex-start;
+}
+
+.career-resources {
+  flex: 1 1 220px;
+  min-width: 210px;
+  max-width: 290px;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.career-details {
+  flex: 2.3 1 340px;
+  min-width: 0;
+}
+
+.career-resources h2,
+.career-details h2 {
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  color: var(--accent);
+}
+
 .resource-card {
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
+  background: var(--card);
+  padding: 1.35rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+}
+
+.resource-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.resource-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
 }
 
 .resource-button {
-  margin-top: 0.8rem;
   display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cv-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
 .cv-card .download-button {
-  display: inline-block;
-  width: 48%;
-  margin: 0.5rem 1%;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  text-align: center;
 }
 
 .detail-block {
-  background: #fdfdfd;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  background: var(--card);
+  padding: clamp(1.25rem, 2.5vw, 1.85rem);
+  margin-bottom: 1.75rem;
+  border-radius: 12px;
+  border-left: 5px solid var(--accent);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .detail-block h3 {
-  margin-top: 0;
+  margin: 0 0 0.85rem;
   font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.goals-block p {
+  line-height: 1.7;
+  margin-bottom: 0.9rem;
+  text-align: justify;
+}
+
+.goals-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Grille Cybersécurité & Réseaux */
+.career-paths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.path-card {
+  background: var(--bg);
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.1rem;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.path-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.path-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: rgba(43, 108, 176, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.path-card h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1.08rem;
+  color: var(--text);
+}
+
+.path-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #444;
+}
+
+/* Chronologie des stages */
+.internship-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.internship-item {
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 2px solid #cbd5e1;
+  padding-bottom: 0.5rem;
+}
+
+.internship-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--card);
+}
+
+.internship-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.internship-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.internship-date {
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--accent);
+  background: rgba(43, 108, 176, 0.1);
+  padding: 0.2rem 0.65rem;
+  border-radius: 14px;
+}
+
+.internship-summary {
+  font-size: 0.94rem;
+  margin: 0.4rem 0 0.7rem;
+  color: #333;
+}
+
+.internship-list {
+  margin: 0 0 0.85rem;
+  padding-left: 1.15rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.internship-list li {
+  margin-bottom: 0.35rem;
+}
+
+.internship-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.internship-tags span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #dce3ec;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
 }
 
 /* --- Vidéo --- */
@@ -1223,40 +1570,6 @@ form.contact-form textarea {
   }
 }
 
-@media (max-width: 650px) {
-  .hero-mobility {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
-  .mobility-image-container {
-    width: 100%;
-    max-width: 360px;
-    margin-bottom: 1.5rem;
-  }
-
-  .mobility-hero-image {
-    min-height: 320px;
-  }
-
-  .mobility-hello {
-    left: 50%;
-    top: 100%;
-    transform: translate(-50%, -50%);
-    font-size: 3.6rem;
-  }
-
-  .mobility-intro-text {
-    padding-top: 1.8rem;
-  }
-
-  .mobility-intro-text p {
-    text-align: left;
-  }
-}
-
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
@@ -1280,16 +1593,65 @@ form.contact-form textarea {
     gap: 1.5rem;
   }
 
-  .two-columns-layout,
-  .career-layout {
+  .two-columns-layout {
     flex-direction: column;
     gap: 2rem;
   }
+}
+
+@media (max-width: 650px) {
+  .hero-mobility {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .mobility-image-container {
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 1.5rem;
+  }
+
+  .mobility-hero-image {
+    min-height: 320px;
+  }
+
+  .mobility-hello {
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 3.6rem;
+    margin-top: 0;
+  }
+
+  .mobility-intro-text {
+    padding-top: 1.8rem;
+  }
+
+  .mobility-intro-text p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 620px) {
+  .career-layout {
+    flex-direction: column;
+  }
+
+  .career-resources {
+    position: static;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cv-link-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
   .cv-card .download-button {
-    display: block;
-    width: 90%;
-    margin: 0.5rem auto;
+    flex: 1 1 140px;
   }
 }
 
