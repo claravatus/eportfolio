@@ -207,10 +207,12 @@ form.contact-form textarea {
 .hero-image,
 .mobility-hero-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: clamp(440px, 50vw, 560px);
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   display: block;
+  object-fit: cover;
 }
 
 .hero-hello,
@@ -314,7 +316,7 @@ form.contact-form textarea {
 }
 
 .activity-card {
-  height: 350px;
+  height: 430px;
 }
 
 .activity-grid .middle-card {
@@ -334,9 +336,192 @@ form.contact-form textarea {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
 }
 
+/* --- Cartes retournables (Flip Cards) --- */
+
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  cursor: pointer;
+  min-height: 430px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+/* Images de fond des cartes d'activités */
+.bg-painting { background-image: url('images/painting.jpeg'); }
+.bg-cooking  { background-image: url('images/cooking.jpeg'); }
+.bg-piano    { background-image: url('images/piano.jpeg'); }
+.bg-reading  { background-image: url('images/reading.jpeg'); }
+.bg-writing  { background-image: url('images/writing.jpeg'); }
+
+/* Face avant : cliquable uniquement quand la carte n'est PAS retournée */
+.flip-card-front {
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.flip-card.is-flipped .flip-card-front {
+  pointer-events: none;
+}
+
+.flip-card-front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.flip-card:hover .flip-card-front::before {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.25) 55%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.flip-card-front > * {
+  position: relative;
+  z-index: 2;
+}
+
+.flip-card-front h3 {
+  margin: 0 0 0.4rem 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.05em;
+}
+
+/* Indication "Click to flip" visible uniquement au survol */
+.flip-hint {
+  font-size: 0.8rem;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 4px 12px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.flip-card:hover .flip-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Face arrière : cliquable uniquement quand la carte EST retournée */
+.flip-card-back {
+  background-color: #1e242b;
+  color: #f4f4f4;
+  transform: rotateY(180deg);
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flip-card.is-flipped .flip-card-back {
+  pointer-events: auto;
+  z-index: 3;
+}
+
+.flip-card-back h3 {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.1rem;
+  color: var(--accent, #4da6ff);
+  flex-shrink: 0;
+}
+
+.flip-card-back p {
+  font-size: 0.83rem;
+  line-height: 1.42;
+  margin: 0.25rem 0;
+  color: #e2e8f0;
+  overflow-y: auto;
+}
+
+/* Bouton "More details" */
+.flip-card-back .details-btn {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  margin-top: 0.35rem;
+  background-color: var(--accent, #4da6ff);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.flip-card-back .details-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.flip-back-hint {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+
 /* --- Mobilité, Compétences & Chronologie --- */
 
-.hero-mobility,
+.hero-mobility {
+  display: flex;
+  gap: clamp(1.2rem, 2.5vw, 2.2rem); /* Écart normal et resserré entre photo et texte */
+  align-items: stretch;
+  margin-top: 3.5rem;
+  margin-bottom: 4.5rem;
+}
+
 .hero-civic {
   display: flex;
   gap: 3rem;
@@ -345,49 +530,147 @@ form.contact-form textarea {
 }
 
 .mobility-image-container {
-  flex: 2;
-  min-width: 300px;
-  max-width: 500px;
+  flex: 1 1 44%;
+  max-width: 460px;
+  min-width: 240px;
+  position: relative;
+  display: flex;
 }
 
 .mobility-hello {
-  top: -2%;
-  left: 60%;
-  font-size: 8rem;
-  opacity: 0.9;
+  position: absolute;
+  top: -0.15em;
+  left: 55%;
+  transform: translateY(-40%);
+  margin-top: 40px;
+  font-size: clamp(4.7rem, 9.5vw, 8.8rem); /* Grand titre responsive */
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.95;
+  opacity: 0.95;
+  text-shadow: 2px 4px 12px rgba(43, 108, 176, 0.15);
+  z-index: 2;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .mobility-intro-text {
-  flex: 1;
-  min-width: 250px;
-  padding-top: 12rem;
+  flex: 1 1 56%;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Aligne le bas du texte avec le bas de l'image */
+  padding-top: clamp(4.5rem, 9vw, 8rem); /* Laisse la place au grand titre en haut */
 }
 
-.language-skills {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 1rem;
+.mobility-intro-text p {
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  line-height: 1.65;
+  margin: 0 0 0.9rem 0;
+  text-align: justify;
 }
 
+.mobility-intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Section Échange Académique (Dublin S8) --- */
+
+.upcoming-exchange {
+  max-width: 920px;
+  margin: 0 auto 4.5rem;
+}
+
+.upcoming-exchange h2,
 .language-skills h2,
 .mobility-timeline h2 {
   text-align: center;
-  font-size: 1.8rem;
-}
-
-.language-skills h2,
-.career-resources h2,
-.career-details h2,
-.course-sidebar h2,
-.project-entry h3,
-.detail-block h3,
-.contact-card h3 {
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
   color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
 
-.language-skills h2 {
-  margin-bottom: 2rem;
+.exchange-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-left: 6px solid var(--accent);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.exchange-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(43, 108, 176, 0.12);
+}
+
+.exchange-badge {
+  display: inline-block;
+  background: rgba(43, 108, 176, 0.12);
+  color: var(--accent);
   font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  margin-bottom: 0.9rem;
+}
+
+.exchange-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.exchange-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.exchange-location {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.exchange-content p {
+  margin: 0 0 1.2rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.exchange-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.exchange-tags .tag {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #dce3ec;
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* --- Compétences Linguistiques --- */
+
+.language-skills {
+  max-width: 920px;
+  margin: 3rem auto 4.5rem;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .language-skills-grid {
@@ -397,73 +680,101 @@ form.contact-form textarea {
 }
 
 .skill-bar-item {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
-.skill-bar-item p {
-  font-weight: 400;
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
+.skill-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.skill-level-label {
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 12px;
 }
 
 .skill-bar-container {
-  background: #e0e0e0;
-  border-radius: 8px;
-  height: 20px;
+  background: #e6ebf2;
+  border-radius: 10px;
+  height: 12px;
   overflow: hidden;
 }
 
 .skill-bar-level {
-  background-color: var(--accent);
-  color: #fff;
+  background: linear-gradient(90deg, var(--accent), #4a90e2);
   height: 100%;
-  line-height: 15px;
-  text-align: right;
-  padding-right: 10px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transition: width 1.5s ease-in-out;
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
 }
 
-.mobility-timeline h2 {
-  font-size: 2rem;
-  margin-bottom: 3rem;
+/* --- Chronologie des Voyages --- */
+
+.mobility-timeline {
+  max-width: 920px;
+  margin: 0 auto 3rem;
 }
 
 .timeline-item,
 .civic-timeline-item {
   display: flex;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   gap: 2rem;
 }
 
+.timeline-item {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+}
+
 .timeline-image-wrapper {
-  flex: 3;
+  flex: 1.2;
 }
 
 .timeline-image {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
 }
 
 .timeline-text-wrapper,
 .civic-timeline-item .timeline-text-wrapper {
-  flex: 2;
+  flex: 1;
 }
 
-.timeline-date,
-.internship-date,
-.project-tech-used {
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
+.timeline-text-wrapper h3 {
+  margin: 0.3rem 0 0.7rem;
+  font-size: 1.35rem;
+  color: var(--text);
 }
 
 .timeline-date {
-  margin-bottom: 1rem;
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(43, 108, 176, 0.1);
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 0.4rem;
 }
 
 .timeline-right,
@@ -474,14 +785,6 @@ form.contact-form textarea {
 .timeline-left,
 .civic-timeline-left {
   flex-direction: row-reverse;
-}
-
-.civic-timeline-right {
-  justify-content: flex-start;
-}
-
-.civic-timeline-left {
-  justify-content: flex-end;
 }
 
 /* --- Page Détail (Hobby) --- */
@@ -891,7 +1194,6 @@ form.contact-form textarea {
 }
 
 @media (max-width: 900px) {
-  .hero-mobility,
   .hero-civic,
   .timeline-item,
   .civic-timeline-item {
@@ -899,18 +1201,13 @@ form.contact-form textarea {
     text-align: center;
   }
 
-  .hero-mobility,
   .hero-civic {
     align-items: center;
   }
 
-  .mobility-image-container {
-    max-width: 400px;
-    margin-bottom: 2rem;
-  }
-
-  .mobility-intro-text {
-    padding-top: 0;
+  .timeline-image {
+    height: auto;
+    max-height: 300px;
   }
 
   .civic-hello {
@@ -923,6 +1220,40 @@ form.contact-form textarea {
   .civic-image-wrapper {
     max-width: 100%;
     margin: 0 auto 1.5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero-mobility {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .mobility-image-container {
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 1.5rem;
+  }
+
+  .mobility-hero-image {
+    min-height: 320px;
+  }
+
+  .mobility-hello {
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 3.6rem;
+  }
+
+  .mobility-intro-text {
+    padding-top: 1.8rem;
+  }
+
+  .mobility-intro-text p {
+    text-align: left;
   }
 }
 
