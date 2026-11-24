@@ -5,102 +5,333 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Activities — My E-Portfolio</title>
   <link rel="stylesheet" href="/eportfolio/style.css">
-  <meta name="description" content="Compétences techniques et professionnelles">
+  <meta name="description" content="Creative pursuits, artistic passions, and extracurricular activities">
+<style>
+    /* Structure des cartes retournables (Flip Cards) */
+    .flip-card {
+      background-color: transparent;
+      perspective: 1000px;
+      cursor: pointer;
+      min-height: 430px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem;
+      box-sizing: border-box;
+    }
+
+    /* Face avant : cliquable uniquement quand la carte n'est PAS retournée */
+    .flip-card-front {
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .flip-card.is-flipped .flip-card-front {
+      pointer-events: none;
+    }
+
+    .flip-card-front::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.65) 0%,
+        rgba(0, 0, 0, 0.15) 45%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      z-index: 1;
+      transition: background 0.3s ease;
+    }
+
+    .flip-card:hover .flip-card-front::before {
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.25) 55%,
+        rgba(0, 0, 0, 0.05) 100%
+      );
+    }
+
+    .flip-card-front > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .flip-card-front h3 {
+      margin: 0 0 0.4rem 0;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      letter-spacing: 0.05em;
+    }
+
+    /* Indication "Click to flip" visible uniquement au survol */
+    .flip-hint {
+      font-size: 0.8rem;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 4px 12px;
+      border-radius: 20px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .flip-card:hover .flip-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Face arrière : cliquable uniquement quand la carte EST retournée */
+    .flip-card-back {
+      background-color: #1e242b;
+      color: #f4f4f4;
+      transform: rotateY(180deg);
+      text-align: center;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .flip-card.is-flipped .flip-card-back {
+      pointer-events: auto;
+      z-index: 3;
+    }
+
+    .flip-card-back h3 {
+      margin: 0 0 0.35rem 0;
+      font-size: 1.1rem;
+      color: var(--accent, #4da6ff);
+      flex-shrink: 0;
+    }
+
+    .flip-card-back p {
+      font-size: 0.83rem;
+      line-height: 1.42;
+      margin: 0.25rem 0;
+      color: #e2e8f0;
+      overflow-y: auto;
+    }
+
+    /* Bouton "More details" */
+    .flip-card-back .details-btn {
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      margin-top: 0.35rem;
+      background-color: var(--accent, #4da6ff);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      position: relative;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    .flip-card-back .details-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .flip-back-hint {
+      font-size: 0.74rem;
+      color: #94a3b8;
+      margin-top: 0.4rem;
+      flex-shrink: 0;
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav class="navbar"> 
-        
         <a href="index.html" class="navbar-brand">
             CLARA VATUS — STUDENT ENGINEER
         </a>
 
         <button class="menu-toggle" aria-expanded="false" aria-controls="navbar-links-list">
-            &#9776; </button>
+            &#9776;
+        </button>
         
         <ul class="navbar-links-list">
             <li><a href="engineering-course.html">ENGINEERING COURSES</a></li>
-            <li><a href="mobility.html"> MOBILITY</a></li>
-            <li><a href="civic-engagement.html"> CIVIC ENGAGEMENT</a></li>
-            <li><a href="activity.html"> ACTIVITIES</a></li>
-            <li><a href="career-developemnt.html"> CAREER DEVELOPMENT</a></li>
+            <li><a href="mobility.html">MOBILITY</a></li>
+            <li><a href="civic-engagement.html">CIVIC ENGAGEMENT</a></li>
+            <li><a href="activity.html">ACTIVITIES</a></li>
+            <li><a href="career-developemnt.html">CAREER DEVELOPMENT</a></li>
             <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </nav>
-</header>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navbarLinksList = document.querySelector('.navbar-links-list');
-
-        menuToggle.addEventListener('click', function() {
-            // Bascule la classe 'is-open' pour afficher/cacher le menu
-            navbarLinksList.classList.toggle('is-open');
-            
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-        });
-    });
-</script>
-
+  </header>
 
   <main class="container">
-    <h1 class="course-title"> Others activities</h1>
+    <h1 class="course-title">Creative Pursuits &amp; Activities</h1>
     <p>
-      I am a very creative person with a strong artistic and literary streak. As a result, I have many passions 
-      that I pursue whenever I have time!
+      I am a very creative person with a strong artistic and literary streak. As a result, 
+      I have many passions that bring balance to my engineering studies!
     </p>
 
     <section class="activity-grid">
         
-        <article class="activity-card" style="background-image: url('images/painting.jpeg');">
-            <a href="hobby/painting.html" class="card-content">
-                <h3> DRAWING/PAINTING</h3>
-                <p>Read More ...</p>
-            </a>
+        <!-- CARTE 1 : DRAWING / PAINTING -->
+        <article class="activity-card flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/painting.jpeg');">
+              <h3>DRAWING &amp; PAINTING</h3>
+              <span class="flip-hint">Click to flip ↻</span>
+            </div>
+            <div class="flip-card-back">
+              <h3>Drawing &amp; Painting</h3>
+              <p>
+                Passionate about sketching, portraits, and acrylic painting. Creating visual art allows me to express my imagination, sharpen my attention to detail, and unwind away from screens.
+              </p>
+              <a href="hobby/painting.html" class="details-btn">More details &amp; Gallery →</a>
+            </div>
+          </div>
         </article>
 
-        <article class="activity-card middle-card" style="background-image: url('images/cooking.jpeg');">
-            <a href="hobby/cooking.html" class="card-content">
-                <h3>COOKING </h3>
-                <p>Read More ...</p>
-            </a>
+        <!-- CARTE 2 : COOKING -->
+        <article class="activity-card middle-card flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/cooking.jpeg');">
+              <h3>COOKING</h3>
+              <span class="flip-hint">Click to flip ↻</span>
+            </div>
+            <div class="flip-card-back">
+              <h3>Cooking &amp; Baking</h3>
+              <p>
+                From traditional pastries to everyday homemade recipes, I love experimenting with flavors and sharing meals with friends and family.
+              </p>
+              <a href="hobby/cooking.html" class="details-btn">More details →</a>
+            </div>
+          </div>
         </article>
 
-        <article class="activity-card" style="background-image: url('images/piano.jpeg');">
-            <a href="hobby/piano.html" class="card-content">
-                <h3> PIANO </h3>
-                <p>Read More ...</p>
-            </a>
+        <!-- CARTE 3 : PIANO -->
+        <article class="activity-card flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/piano.jpeg');">
+              <h3>PIANO</h3>
+              <span class="flip-hint">Click to flip ↻</span>
+            </div>
+            <div class="flip-card-back">
+              <h3>Piano</h3>
+              <p>
+                I studied piano for nearly ten years at a music school, completing my entire first cycle. Although I stopped formal lessons in college, I still play regularly from sheet music or online tutorials—alternating between classical pieces and film soundtracks, which sharpens my patience, precision, and focus
+              </p>
+              <span class="flip-back-hint">Click anywhere on card to flip back ↺</span>
+            </div>
+          </div>
         </article>
         
-        <article class="activity-card" style="background-image: url('images/reading.jpeg');">
-            <a href="hobby/reading.html" class="card-content">
-                <h3>READING</h3>
-                <p>Read More ...</p>
-            </a>
+        <!-- CARTE 4 : READING -->
+        <article class="activity-card flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/reading.jpeg');">
+              <h3>READING</h3>
+              <span class="flip-hint">Click to flip ↻</span>
+            </div>
+            <div class="flip-card-back">
+              <h3>Reading</h3>
+              <p>
+                I read around twenty books a year across classic and modern fiction, with a strong taste for 20th-century historical novels, dystopias, and psychological thrillers. Exploring these narratives enriches my vocabulary, broadens my general knowledge, and fuels my analytical mindset.
+              </p>
+              <span class="flip-back-hint">Click anywhere on card to flip back ↺</span>
+            </div>
+          </div>
         </article>
 
-        <article class="activity-card middle-card" style="background-image: url('images/writing.jpeg');">
-            <a href="hobby/writing.html" class="card-content">
-                <h3> WRITING</h3>
-                <p>Read More ...</p>
-            </a>
+        <!-- CARTE 5 : WRITING -->
+        <article class="activity-card middle-card flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('images/writing.jpeg');">
+              <h3>WRITING</h3>
+              <span class="flip-hint">Click to flip ↻</span>
+            </div>
+            <div class="flip-card-back">
+              <h3>Creative Writing</h3>
+              <p>
+                Writing has been one of my greatest passions since I was ten years old. I have developed several novel projects, ranging from comedy-drama to dystopia and alternate history. My most polished manuscript is a psychological thriller. Creating diverse worlds and complex plots stimulates my creativity, my ability to synthesize information, and my precision in writing.
+              </p>
+              <span class="flip-back-hint">Click anywhere on card to flip back ↺</span>
+            </div>
+          </div>
         </article>
         
     </section>
-</main>
+  </main>
 
   <footer>
     <div class="footer-content">
         <p>&copy; 2025 — My E-Portfolio</p>
 
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" aria-label="LinkedIn">
-                My Linkedin </a>
+            <a href="https://www.linkedin.com/in/clara-vatus-7ab1b1387/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                My LinkedIn
+            </a>
         </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Menu mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinksList = document.querySelector('.navbar-links-list');
+
+        if (menuToggle && navbarLinksList) {
+            menuToggle.addEventListener('click', function() {
+                navbarLinksList.classList.toggle('is-open');
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+        }
+
+        // 2. Retournement des cartes au clic
+        const flipCards = document.querySelectorAll('.flip-card');
+        flipCards.forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                // Laisse le bouton "More details" naviguer normalement sans retourner la carte
+                if (e.target.closest('.details-btn')) {
+                    return;
+                }
+                this.classList.toggle('is-flipped');
+            });
+        });
+    });
+  </script>
 </body>
 </html>
